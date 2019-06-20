@@ -5,11 +5,18 @@ public class Chicken extends Animal implements Produce {
 
     }
 
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return "B'Gock!";
     }
 
-    public void Yield() {
+    public EdibleObject Yield() {
+
+
+        return null;
+    }
+
+    public void eat(EdibleObject edibleObject) {
 
     }
 }

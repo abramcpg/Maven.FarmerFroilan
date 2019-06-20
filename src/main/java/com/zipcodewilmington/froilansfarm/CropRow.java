@@ -2,6 +2,6 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.List;
 
-public class CropRow {
-    List<Crop> crops;
+public class CropRow <T extends Crop>{
+    List<T> crops;
 }

@@ -1,12 +1,22 @@
 package com.zipcodewilmington.froilansfarm;
 
+
+import java.util.List;
+
 public class Tractor extends Vehicle implements FarmVehicle {
-    public void makeNoise() {
+    public String makeNoise() {
+        return "Vrooom";
     }
-    public void harvest(){ //Crop as perameter?
+    public List<Crop> harvest(CropRow cropRow){
+        //sets Field.hasBeenFertilized to false
+        return null;
     }
 
     public void operate() {
+
+    }
+
+    public void operate(Farm farm) {
 
     }
 }

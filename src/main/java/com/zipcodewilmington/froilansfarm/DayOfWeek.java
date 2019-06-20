@@ -1,6 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface EdibleObject {
-
-
+public enum DayOfWeek {
 }

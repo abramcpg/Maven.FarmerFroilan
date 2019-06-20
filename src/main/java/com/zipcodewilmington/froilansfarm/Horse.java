@@ -5,7 +5,12 @@ public class Horse extends Animal implements Rideable {
 
     }
 
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return "Hello, Farmer Froilan. It is good to see you.";
+    }
+
+    public void eat(EdibleObject edibleObject) {
+        
     }
 }

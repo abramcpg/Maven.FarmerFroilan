@@ -1,6 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface EdibleObject {
-
-
+public class Tomato implements EdibleObject {
 }
