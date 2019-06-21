@@ -1,9 +1,9 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
-import com.zipcodewilmington.froilansfarm.Crops.EarCorn;
-import com.zipcodewilmington.froilansfarm.Crops.Egg;
-import com.zipcodewilmington.froilansfarm.Crops.Tomato;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Interfaces.Botanist;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
@@ -54,17 +54,18 @@ public class Farmer extends Person implements Botanist, Rider {
         System.out.println(switcher);
 
         switch (switcher) {
-            case "class com.zipcodewilmington.froilansfarm.Crops.EarCorn":
+            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn":
                 Farm.getInstance().getBarn().getCornStoreHouse().removeEdible(new EarCorn(), numberOfEdibles);
                 break;
-            case "class com.zipcodewilmington.froilansfarm.Crops.Tomato":
+            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato":
                 Farm.getInstance().getBarn().getTomatoStoreHouse().removeEdible(new Tomato(), numberOfEdibles);
                 break;
-            case "class com.zipcodewilmington.froilansfarm.Crops.Egg":
+            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Egg":
                 Farm.getInstance().getBarn().getEggStoreHouse().removeEdible(new Egg(), numberOfEdibles);
                 break;
             default :
-                System.out.println("Error");
+                System.out.println("Error!!!");
+                break;
         }
     }
 }

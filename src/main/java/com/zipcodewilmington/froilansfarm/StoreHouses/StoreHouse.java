@@ -52,8 +52,8 @@ public abstract class StoreHouse <T extends EdibleObject>{ //T makes it generic
             clearStorehouse();
             System.out.println("Not enough food in storage");
         } else {
-            for (int i = 0; i < numberOfEdibles; i++){
-                edibleObjects.remove(i);
+            if (numberOfEdibles >= 1) {
+                edibleObjects.subList(1, numberOfEdibles + 1).clear();
             }
         }
     }

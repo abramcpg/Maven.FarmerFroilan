@@ -2,9 +2,9 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Crops.CornStalk;
-import com.zipcodewilmington.froilansfarm.Crops.EarCorn;
-import com.zipcodewilmington.froilansfarm.Crops.Tomato;
 import com.zipcodewilmington.froilansfarm.Crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
