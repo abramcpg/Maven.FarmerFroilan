@@ -37,23 +37,30 @@ public class FarmTests {
 
 
     @Test
-    public void farmTest1(){
+    public void farmhouseTest(){
         Assert.assertNotNull(froilanFarm.getFarmHouse());
     }
 
     @Test
-    public void farmTest2(){
+    public void fieldTest(){
         Assert.assertNotNull(froilanFarm.getField());
     }
 
     @Test
-    public void setField(){
+    public void setFieldTest(){
         froilanFarm.setField(new Field());
         Assert.assertNotNull(froilanFarm.getField());
     }
 
     @Test
-    public void farmTest3(){
+    public void yieldTest(){
+        CornStalk stalk1 = new CornStalk();
+        EarCorn corn1 = (EarCorn) stalk1.Yield(); //why must I cast this?
+        Assert.assertNotNull(corn1);
+    }
+
+    @Test
+    public void rowTest(){
         rows.add(cornRow1);
         rows.add(tomatoRow1);
 
@@ -64,7 +71,7 @@ public class FarmTests {
     }
 
     @Test
-    public void farmTest4(){
+    public void fieldRowTest(){
         rows.add(cornRow1);
         rows.add(tomatoRow1);
         rows.add(cornRow2);
@@ -78,7 +85,7 @@ public class FarmTests {
     }
 
     @Test
-    public void farmTest5(){
+    public void getCropsTest(){
         rows.add(cornRow1);
 
         CornStalk stalk1 = new CornStalk();
@@ -96,7 +103,7 @@ public class FarmTests {
     }
 
     @Test
-    public void farmTest6(){
+    public void getCropsTest2(){
         rows.add(cornRow1);
 
         CornStalk stalk1 = new CornStalk();
@@ -111,7 +118,7 @@ public class FarmTests {
     }
 
     @Test
-    public void farmTest7(){
+    public void genericRowTest(){
         froilanFarm.getField().setCropRows(rows);
         rows.add(cornRow1);
         rows.add(cornRow2);
@@ -125,11 +132,6 @@ public class FarmTests {
         Assert.assertTrue(froilanFarm.getField().getCropRows().get(2).getCrops().get(0) instanceof CornStalk);
         Assert.assertTrue(froilanFarm.getField().getCropRows().get(2).getCrops().get(1) instanceof TomatoPlant);
     }
-
-
-
-
-
 
 
 }
