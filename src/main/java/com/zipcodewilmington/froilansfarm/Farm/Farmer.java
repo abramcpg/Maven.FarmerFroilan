@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
+import com.zipcodewilmington.froilansfarm.Crops.CropRow;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
@@ -31,6 +32,13 @@ public class Farmer extends Person implements Botanist, Rider {
     public void plant(Crop crop) {
 
     }
+
+
+    public void plantRow(Crop crop, CropRow<?> cropRow, Integer amount) {
+        cropRow.addMultipleToCropRow(crop, amount);
+    }
+
+
 
 
     public void pilot() {

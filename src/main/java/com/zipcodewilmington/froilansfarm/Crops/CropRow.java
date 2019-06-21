@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
-import com.sun.tools.internal.ws.api.wsdl.TWSDLOperation;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 
 import java.util.ArrayList;
@@ -38,9 +37,9 @@ public class CropRow <T extends Crop>{
     }
 
 
-    public void addMultipleToCropRow(T crop, Integer amount){
+    public void addMultipleToCropRow(Crop crop, Integer amount){
         for (int i = 0; i < amount; i++){
-            crops.add(crop);
+            crops.add((T) crop);
         }
     }
 

@@ -39,9 +39,13 @@ public class Farm {
 
 
 
-    public void addStable(){}
+    public void addStable(Stable stable){
+        stables.add(stable);
+    }
 
-    public void addChickenCoup(){}
+    public void addChickenCoup(ChickenCoup chickenCoup){
+        chickenCoops.add(chickenCoup);
+    }
 
 
     public List<Stable> getStables() {
