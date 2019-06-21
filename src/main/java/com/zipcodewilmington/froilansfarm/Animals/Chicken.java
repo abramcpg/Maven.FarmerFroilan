@@ -1,7 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Animals;
 
 import com.zipcodewilmington.froilansfarm.Animals.Animal;
-import com.zipcodewilmington.froilansfarm.Crops.Egg;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.Produce;
 

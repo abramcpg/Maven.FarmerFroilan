@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.StoreHouses;
 
-import com.zipcodewilmington.froilansfarm.Crops.Egg;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 
 import java.util.List;
 
