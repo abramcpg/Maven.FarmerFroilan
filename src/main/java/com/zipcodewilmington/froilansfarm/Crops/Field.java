@@ -9,6 +9,14 @@ public class Field {
     private Boolean hasBeenFertilized;
 
 
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
+
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
+    }
+
     public Field() {
         this.cropRows = new ArrayList<>();
         this.hasBeenFertilized = false;
