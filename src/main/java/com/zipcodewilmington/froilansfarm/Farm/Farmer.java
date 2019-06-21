@@ -51,7 +51,6 @@ public class Farmer extends Person implements Botanist, Rider {
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
         String switcher = edibleObject.getClass().toString();
-        System.out.println(switcher);
 
         switch (switcher) {
             case "class com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn":
