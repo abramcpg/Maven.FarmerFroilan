@@ -5,7 +5,11 @@ import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 public class CornStalk extends Crop {
 
 
-    public EdibleObject Yield() {
+    public CornStalk() {}
+
+
+
+    public EarCorn Yield() {
 
         return new EarCorn();
     }

@@ -4,27 +4,36 @@ import com.zipcodewilmington.froilansfarm.Animals.ChickenCoup;
 import com.zipcodewilmington.froilansfarm.Animals.Stable;
 import com.zipcodewilmington.froilansfarm.Crops.Field;
 import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
-    List<Person> people; //do we need this?? Farmhouse already includes a list of people
-    List<Stable> stables;
-    List<ChickenCoup> chickenCoops;
-    List<FarmVehicle> farmVehicles;
-    Field field;
-    FarmHouse farmHouse; //probably defined as singleton cause there's only one
 
-    public Farm() {
-        this.people = new ArrayList<>();
+    private static final Farm INSTANCE = new Farm();
+
+    private List<Stable> stables;
+    private List<ChickenCoup> chickenCoops;
+    private List<FarmVehicle> farmVehicles;
+    private Field field;
+    private FarmHouse farmHouse; //probably defined as singleton cause there's only one
+    private Barn barn;
+
+    private Farm() {
         this.stables = new ArrayList<>();
         this.chickenCoops = new ArrayList<>();
         this.farmVehicles = new ArrayList<>();
         this.field = new Field();
-        this.farmHouse = new FarmHouse();
-
+        this.farmHouse = FarmHouse.getInstance();
+        this.barn = Barn.getInstance();
     }
+
+
+    public static Farm getInstance(){
+        return INSTANCE;
+    }
+
 
 
 
@@ -33,13 +42,6 @@ public class Farm {
 
     public void addChickenCoup(){}
 
-    public List<Person> getPeople() {
-        return people;
-    }
-
-    public void setPeople(List<Person> people) {
-        this.people = people;
-    }
 
     public List<Stable> getStables() {
         return stables;
@@ -79,5 +81,9 @@ public class Farm {
 
     public void setFarmHouse(FarmHouse farmHouse) {
         this.farmHouse = farmHouse;
+    }
+
+    public Barn getBarn() {
+        return barn;
     }
 }

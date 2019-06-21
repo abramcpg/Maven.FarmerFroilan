@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.Crops;
 import java.util.ArrayList;
 import java.util.List;
 
+//make fixed array?
 public class CropRow <T extends Crop>{
     private List<T> crops;
 

@@ -5,6 +5,10 @@ import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
+
+    public Horse() {
+    }
+
     public void eat() {
 
     }

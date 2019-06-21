@@ -4,6 +4,9 @@ import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
+import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
+import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
+import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,51 +28,50 @@ public class FarmTests {
 
 
     @Before
-    public void setUp(){
-        froilanFarm = new Farm();
+    public void setUp() {
+        froilanFarm = Farm.getInstance();
         cornRow1 = new CropRow<>();
         cornRow2 = new CropRow<>();
         tomatoRow1 = new CropRow<>();
         genericRow = new CropRow<>();
         rows = new ArrayList<>();
-        farmHouse = new FarmHouse();
+        farmHouse = FarmHouse.getInstance();
         froilanFarm.setFarmHouse(farmHouse);
         froilanFarm.setField(thisField);
         froilanFarm.getField().setCropRows(rows);
     }
 
 
-
     @Test
-    public void farmhouseTest(){
+    public void farmhouseTest() {
         Assert.assertNotNull(froilanFarm.getFarmHouse());
     }
 
     @Test
-    public void fieldTest(){
+    public void fieldTest() {
         Assert.assertNotNull(froilanFarm.getField());
     }
 
     @Test
-    public void fieldTest2(){
+    public void fieldTest2() {
         Assert.assertNotNull(froilanFarm.getField().getCropRows());
     }
 
     @Test
-    public void setFieldTest(){
+    public void setFieldTest() {
         froilanFarm.setField(new Field());
         Assert.assertNotNull(froilanFarm.getField());
     }
 
     @Test
-    public void yieldTest(){
+    public void yieldTest() {
         CornStalk stalk1 = new CornStalk();
         EarCorn corn1 = (EarCorn) stalk1.Yield(); //why must I cast this?
         Assert.assertNotNull(corn1);
     }
 
     @Test
-    public void rowTest(){
+    public void rowTest() {
         rows.add(cornRow1);
         rows.add(tomatoRow1);
 
@@ -80,7 +82,7 @@ public class FarmTests {
     }
 
     @Test
-    public void fieldRowTest(){
+    public void fieldRowTest() {
         rows.add(cornRow1);
         rows.add(tomatoRow1);
         rows.add(cornRow2);
@@ -92,7 +94,7 @@ public class FarmTests {
     }
 
     @Test
-    public void getCropsTest(){
+    public void getCropsTest() {
         rows.add(cornRow1);
 
         cornRow1.addCrop(new CornStalk());
@@ -106,7 +108,7 @@ public class FarmTests {
     }
 
     @Test
-    public void getCropsTest2(){
+    public void getCropsTest2() {
         rows.add(cornRow1);
         cornRow1.addCrop(new CornStalk());
 
@@ -117,7 +119,7 @@ public class FarmTests {
     }
 
     @Test
-    public void genericRowTest(){
+    public void genericRowTest() {
         rows.add(cornRow1);
         rows.add(cornRow2);
         rows.add(genericRow);
@@ -131,7 +133,7 @@ public class FarmTests {
 
 
     @Test
-    public void yieldTest2(){
+    public void yieldTest2() {
         cornRow1.addCrop(new CornStalk());
         cornRow1.addCrop(new CornStalk());
         cornRow1.addCrop(new CornStalk());
@@ -141,7 +143,7 @@ public class FarmTests {
 
 
         //should generify this process
-        for (CornStalk stalk : cornRow1.getCrops()){
+        for (CornStalk stalk : cornRow1.getCrops()) {
             edibleList.add(stalk.Yield());
         }
 
@@ -152,5 +154,28 @@ public class FarmTests {
     }
 
 
+    @Test
+    public void storeHouseTest(){
+//        Barn barn = froilanFarm.getBarn();
+//        CornStoreHouse cornHouse = barn.getCornStoreHouse();
+        CornStoreHouse cornHouse = froilanFarm.getBarn().getCornStoreHouse();
+        
+        ArrayList<EarCorn> cornList = new ArrayList<>();
+
+        cornList.add(new EarCorn());
+        cornList.add(new EarCorn());
+        cornList.add(new EarCorn());
+        cornList.add(new EarCorn());
+
+        cornHouse.setEdibleObjects(cornList);
+
+        Integer expected = 4;
+        Integer actual = cornHouse.getEdibleObjects().size();
+        Assert.assertEquals(expected, actual);
+    }
+
 
 }
+
+
+

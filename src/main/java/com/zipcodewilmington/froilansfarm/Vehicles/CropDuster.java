@@ -7,6 +7,8 @@ import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
 public class CropDuster extends Aircraft implements FarmVehicle {
 
 
+    public CropDuster() {}
+
     public void fertilize(Field field){
         //Sets Field,hasBeenFertilized to true
     }
