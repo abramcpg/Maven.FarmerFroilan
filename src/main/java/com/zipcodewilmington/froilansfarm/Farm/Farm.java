@@ -7,8 +7,7 @@ import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
 
 import java.util.List;
 
-public class Farm {
-    List<Person> people;
+public class Farm { //Singleton
     List<Stable> stables;
     List<ChickenCoup> chickenCoops;
     List<FarmVehicle> farmVehicles;
@@ -18,4 +17,6 @@ public class Farm {
     public void addStable(){}
 
     public void addChickenCoup(){}
+
+    public void addFarmVehicle(){}
 }
