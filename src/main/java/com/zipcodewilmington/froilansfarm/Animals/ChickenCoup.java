@@ -13,7 +13,10 @@ public class ChickenCoup {
     }
 
 
-    public void addChicken(){}
+    public void addChicken(Chicken chicken){
+        chickens.add(chicken);
+
+    }
 
     public List<Chicken> getChickens() {
         return chickens;
