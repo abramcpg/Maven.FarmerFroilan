@@ -6,6 +6,16 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rider;
 
 public class Pilot extends Person implements Rider {
+
+
+    public Pilot() {
+        super();
+    }
+
+    public Pilot(String name) {
+        super(name);
+    }
+
     public void pilot(){}
 
 

@@ -9,6 +9,11 @@ import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
 import java.util.List;
 
 public class Tractor extends Vehicle implements FarmVehicle {
+
+
+    public Tractor() {}
+
+
     public String makeNoise() {
         return "Vrooom";
     }

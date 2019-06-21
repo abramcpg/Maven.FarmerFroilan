@@ -7,9 +7,16 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rider;
 
 public class Farmer extends Person implements Botanist, Rider {
-    public void eat() {
 
+
+    public Farmer() {
+        super();
     }
+
+    public Farmer(String name) {
+        super(name);
+    }
+
 
     public String makeNoise() {
 

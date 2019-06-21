@@ -6,5 +6,7 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Produce;
 public abstract class Crop implements Produce {
 
 
-    Boolean hasBeenFertilized;
+    private Boolean hasBeenFertilized;
+    private Boolean hasBeenHarvested;
+
 }
