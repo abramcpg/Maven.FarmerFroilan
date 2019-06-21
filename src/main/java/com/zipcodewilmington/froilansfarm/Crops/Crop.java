@@ -5,8 +5,31 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Produce;
 
 public abstract class Crop implements Produce {
 
+    private boolean fertilized;
+    private boolean harvested;
 
-    private Boolean hasBeenFertilized;
-    private Boolean hasBeenHarvested;
+    public Crop() {
+        this.fertilized = false;
+        this.harvested = false;
+    }
+
+    //required by Produce
+    public EdibleObject yield() {
+        return null;
+    }
+
+
+    public boolean hasBeenFertilized() {
+        return fertilized;
+    }
+
+
+    public boolean isHarvested() {
+        return harvested;
+    }
+
+    public void setHarvested() {
+        harvested = !harvested;
+    }
 
 }
