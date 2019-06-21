@@ -20,6 +20,7 @@ public class Farm {
     private FarmHouse farmHouse; //probably defined as singleton cause there's only one
     private Barn barn;
 
+
     private Farm() {
         this.stables = new ArrayList<>();
         this.chickenCoops = new ArrayList<>();

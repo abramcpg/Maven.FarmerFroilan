@@ -7,7 +7,9 @@ import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
+import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +28,10 @@ public class FarmTests {
     private Field thisField = new Field();
     private ArrayList<CropRow> rows;
     private FarmHouse farmHouse;
+    private CornStoreHouse cornStoreHouse;
+    private TomatoStoreHouse tomatoStoreHouse;
+    private EggStoreHouse eggStoreHouse;
+
 
 
     @Before
@@ -40,6 +46,16 @@ public class FarmTests {
         froilanFarm.setFarmHouse(farmHouse);
         froilanFarm.setField(thisField);
         froilanFarm.getField().setCropRows(rows);
+        cornStoreHouse = froilanFarm.getBarn().getCornStoreHouse();
+        tomatoStoreHouse = froilanFarm.getBarn().getTomatoStoreHouse();
+        eggStoreHouse = froilanFarm.getBarn().getEggStoreHouse();
+    }
+
+    @After
+    public void tearDown() {
+        cornStoreHouse.clearStorehouse();
+        tomatoStoreHouse.clearStorehouse();
+        eggStoreHouse.clearStorehouse();
     }
 
 
@@ -67,7 +83,7 @@ public class FarmTests {
     @Test
     public void yieldTest() {
         CornStalk stalk1 = new CornStalk();
-        EarCorn corn1 = (EarCorn) stalk1.Yield(); //why must I cast this?
+        EarCorn corn1 = stalk1.Yield(); //why must I cast this?
         Assert.assertNotNull(corn1);
     }
 
