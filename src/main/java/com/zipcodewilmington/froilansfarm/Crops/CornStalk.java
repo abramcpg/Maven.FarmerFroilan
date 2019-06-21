@@ -7,6 +7,6 @@ public class CornStalk extends Crop {
 
     public EdibleObject Yield() {
 
-        return null;
+        return new EarCorn();
     }
 }
