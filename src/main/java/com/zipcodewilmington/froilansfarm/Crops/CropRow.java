@@ -33,4 +33,8 @@ public class CropRow <T extends Crop>{
         crops.add(crop);
     }
 
+//    public void forEachCrop(){
+//        for
+//    }
+
 }

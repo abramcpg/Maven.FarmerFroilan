@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm;
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 
 public class FarmTests {
 
+
+    //should make some of these singletons asap
     private Farm froilanFarm;
     private CropRow<CornStalk> cornRow1;
     private CropRow<TomatoPlant> tomatoRow1;
@@ -32,6 +35,7 @@ public class FarmTests {
         farmHouse = new FarmHouse();
         froilanFarm.setFarmHouse(farmHouse);
         froilanFarm.setField(thisField);
+        froilanFarm.getField().setCropRows(rows);
     }
 
 
@@ -44,6 +48,11 @@ public class FarmTests {
     @Test
     public void fieldTest(){
         Assert.assertNotNull(froilanFarm.getField());
+    }
+
+    @Test
+    public void fieldTest2(){
+        Assert.assertNotNull(froilanFarm.getField().getCropRows());
     }
 
     @Test
@@ -76,8 +85,6 @@ public class FarmTests {
         rows.add(tomatoRow1);
         rows.add(cornRow2);
 
-        thisField.setCropRows(rows);
-
         Integer expected = 3;
         Integer actual = froilanFarm.getField().getCropRows().size();
 
@@ -88,13 +95,9 @@ public class FarmTests {
     public void getCropsTest(){
         rows.add(cornRow1);
 
-        CornStalk stalk1 = new CornStalk();
-        CornStalk stalk2 = new CornStalk();
-        CornStalk stalk3 = new CornStalk();
-
-        cornRow1.addCrop(stalk1);
-        cornRow1.addCrop(stalk2);
-        cornRow1.addCrop(stalk3);
+        cornRow1.addCrop(new CornStalk());
+        cornRow1.addCrop(new CornStalk());
+        cornRow1.addCrop(new CornStalk());
 
         Integer expected = 3;
         Integer actual = cornRow1.getCrops().size();
@@ -105,11 +108,7 @@ public class FarmTests {
     @Test
     public void getCropsTest2(){
         rows.add(cornRow1);
-
-        CornStalk stalk1 = new CornStalk();
-        cornRow1.addCrop(stalk1);
-
-        froilanFarm.getField().setCropRows(rows);
+        cornRow1.addCrop(new CornStalk());
 
         Integer expected = 1;
         Integer actual = froilanFarm.getField().getCropRows().get(0).getCrops().size();
@@ -119,19 +118,39 @@ public class FarmTests {
 
     @Test
     public void genericRowTest(){
-        froilanFarm.getField().setCropRows(rows);
         rows.add(cornRow1);
         rows.add(cornRow2);
         rows.add(genericRow);
 
-        CornStalk stalk1 = new CornStalk();
-        TomatoPlant tomatoPlant1 = new TomatoPlant();
-        genericRow.addCrop(stalk1);
-        genericRow.addCrop(tomatoPlant1);
+        genericRow.addCrop(new CornStalk());
+        genericRow.addCrop(new TomatoPlant());
 
         Assert.assertTrue(froilanFarm.getField().getCropRows().get(2).getCrops().get(0) instanceof CornStalk);
         Assert.assertTrue(froilanFarm.getField().getCropRows().get(2).getCrops().get(1) instanceof TomatoPlant);
     }
+
+
+    @Test
+    public void yieldTest2(){
+        cornRow1.addCrop(new CornStalk());
+        cornRow1.addCrop(new CornStalk());
+        cornRow1.addCrop(new CornStalk());
+        cornRow1.addCrop(new CornStalk());
+
+        ArrayList<EdibleObject> edibleList = new ArrayList<>();
+
+
+        //should generify this process
+        for (CornStalk stalk : cornRow1.getCrops()){
+            edibleList.add(stalk.Yield());
+        }
+
+        Integer expected = 4;
+        Integer actual = edibleList.size();
+        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(edibleList.get(0) instanceof EarCorn);
+    }
+
 
 
 }
