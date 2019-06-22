@@ -4,7 +4,7 @@ import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
-
+import com.zipcodewilmington.froilansfarm.Crops.CropRow;
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
@@ -13,7 +13,6 @@ import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
-import com.zipcodewilmington.froilansfarm.Crops.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
@@ -47,29 +46,19 @@ public class CropDuster extends Aircraft implements FarmVehicle {
 
     public CropDuster() {
 
-
-
-        Boolean act, exp;
-
-        thisField.setHasBeenFertilized(false);
-        act = thisField.getHasBeenFertilized();
-
-        exp = true;
-        thisField.setHasBeenFertilized(exp);
-        act = thisField.getHasBeenFertilized();
-
-
     }
-
 
 
     public void fertilize(Field field){
+        thisField.setHasBeenFertilized(true);
         //Sets Field,hasBeenFertilized to true
     }
+
 
     public void operate() {
 
     }
+
 
     public void operate(Farm farm) {
 

@@ -19,6 +19,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
         return "Vrooom";
     }
 
+
     public List<Crop> harvest(CropRow cropRow){
 
         thisField.setHasBeenFertilized(false);
@@ -26,9 +27,11 @@ public class Tractor extends Vehicle implements FarmVehicle {
         return null;
     }
 
+
     public void operate() {
 
     }
+
 
     public void operate(Farm farm) {
 

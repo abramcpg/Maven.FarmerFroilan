@@ -1,20 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
-
-import com.zipcodewilmington.froilansfarm.Crops.*;
-import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
-import com.zipcodewilmington.froilansfarm.Farm.Farm;
-import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
-import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
-import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
-import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
-import com.zipcodewilmington.froilansfarm.Crops.CropRow;
-import com.zipcodewilmington.froilansfarm.Farm.Farm;
-import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
-import com.zipcodewilmington.froilansfarm.Vehicles.Aircraft;
+import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.Farm.Farm;
+import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
+import com.zipcodewilmington.froilansfarm.Crops.CropRow;
 
 import org.junit.Assert;
 import org.junit.Before;
