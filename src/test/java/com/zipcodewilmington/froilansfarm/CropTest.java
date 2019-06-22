@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
@@ -55,10 +56,6 @@ public class CropTest {
 //        assertTrue(tomatoPlant instanceof EdibleObject);
 //    }
 
-//    @Test
-//    public void yieldTomatoTest(){
-//        //      EdibleObject actual = crop(type).yield();
-//        //     assertTrue( instanceof Tomato);
-//    }
+
 
 }

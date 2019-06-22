@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
@@ -54,11 +55,25 @@ public class EdibleObjectTest {
         int numberOfChickens = 15;
         Egg egg = new Egg();
         //Then
-        egg.getDailyEggs(numberOfChickens);
+        egg.getDailyEdibleEggs(numberOfChickens);
         int expected = Math.round((numberOfChickens +1) / 2);
-        int actual = egg.getDailyEggs(numberOfChickens);
+        int actual = egg.getDailyEdibleEggs(numberOfChickens);
         //assert
         assertEquals(expected, actual);
    }
+
+    @Test
+    public void getHarvestedTomatoTest() {
+        //when
+        TomatoPlant tomatoPlant = new TomatoPlant();
+        int numberOfPlants = 50;
+        int tomatoesPerPlant = 10;
+        //when
+        int expected = numberOfPlants * tomatoesPerPlant;
+        int actual = tomatoPlant.getHarvestedTomatoes(numberOfPlants, tomatoesPerPlant);
+        //assert
+        assertEquals(expected, actual);
+    }
+
 
 }
