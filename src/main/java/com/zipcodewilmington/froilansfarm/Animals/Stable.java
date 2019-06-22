@@ -12,7 +12,8 @@ public class Stable {
         this.horses = new ArrayList<>();
     }
 
-    public void addHorse(){
+    public void addHorse(Horse horse){
+        horses.add(horse);
 
     }
 
@@ -22,5 +23,9 @@ public class Stable {
 
     public void setHorses(List<Horse> horses) {
         this.horses = horses;
+    }
+
+    public Integer getNumberOfHorses(){
+        return horses.size();
     }
 }

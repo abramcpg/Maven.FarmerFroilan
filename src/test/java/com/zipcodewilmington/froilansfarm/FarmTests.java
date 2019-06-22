@@ -7,7 +7,9 @@ import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
+import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,28 +20,31 @@ public class FarmTests {
 
 
     //should make some of these singletons asap
-    private Farm froilanFarm;
-    private CropRow<CornStalk> cornRow1;
-    private CropRow<TomatoPlant> tomatoRow1;
-    private CropRow<CornStalk> cornRow2;
-    private CropRow<Crop> genericRow;
+    private Farm froilanFarm = Farm.getInstance();
+    private CropRow<CornStalk> cornRow1 = new CropRow<>();
+    private CropRow<TomatoPlant> tomatoRow1 = new CropRow<>();
+    private CropRow<CornStalk> cornRow2 = new CropRow<>();
+    private CropRow<Crop> genericRow = new CropRow<>();
     private Field thisField = new Field();
-    private ArrayList<CropRow> rows;
-    private FarmHouse farmHouse;
+    private ArrayList<CropRow> rows = new ArrayList<>();
+    private FarmHouse farmHouse = FarmHouse.getInstance();
+    private CornStoreHouse cornStoreHouse  = froilanFarm.getBarn().getCornStoreHouse();
+    private TomatoStoreHouse tomatoStoreHouse = froilanFarm.getBarn().getTomatoStoreHouse();
+    private EggStoreHouse eggStoreHouse = froilanFarm.getBarn().getEggStoreHouse();;
+
 
 
     @Before
     public void setUp() {
-        froilanFarm = Farm.getInstance();
-        cornRow1 = new CropRow<>();
-        cornRow2 = new CropRow<>();
-        tomatoRow1 = new CropRow<>();
-        genericRow = new CropRow<>();
-        rows = new ArrayList<>();
-        farmHouse = FarmHouse.getInstance();
-        froilanFarm.setFarmHouse(farmHouse);
         froilanFarm.setField(thisField);
         froilanFarm.getField().setCropRows(rows);
+    }
+
+    @After
+    public void tearDown() {
+        cornStoreHouse.clearStorehouse();
+        tomatoStoreHouse.clearStorehouse();
+        eggStoreHouse.clearStorehouse();
     }
 
 
@@ -67,7 +72,7 @@ public class FarmTests {
     @Test
     public void yieldTest() {
         CornStalk stalk1 = new CornStalk();
-        EarCorn corn1 = (EarCorn) stalk1.Yield(); //why must I cast this?
+        EarCorn corn1 = stalk1.Yield(); //why must I cast this?
         Assert.assertNotNull(corn1);
     }
 
@@ -157,8 +162,6 @@ public class FarmTests {
 
     @Test
     public void storeHouseTest(){
-//        Barn barn = froilanFarm.getBarn();
-//        CornStoreHouse cornHouse = barn.getCornStoreHouse();
         CornStoreHouse cornHouse = froilanFarm.getBarn().getCornStoreHouse();
         
         ArrayList<EarCorn> cornList = new ArrayList<>();
@@ -175,8 +178,33 @@ public class FarmTests {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void addMultipleToCropRowTest(){
+        cornRow1.addMultipleToCropRow(new CornStalk(), 15);
+
+        Integer expected = 15;
+        Integer actual = cornRow1.getCrops().size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void multipleYieldTest(){
+        genericRow.addMultipleToCropRow(new CornStalk(), 15);
+        genericRow.addMultipleToCropRow(new TomatoPlant(), 5);
+
+        ArrayList<EdibleObject> testList = genericRow.rowYield();
+
+        Integer expected = 20;
+        Integer actual = testList.size();
+
+        System.out.println(testList);
+        Assert.assertEquals(expected, actual);
+    }
+
 
 }
+
 
 
 
