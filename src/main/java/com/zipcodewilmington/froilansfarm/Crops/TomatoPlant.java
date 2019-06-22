@@ -6,11 +6,12 @@ import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 public class TomatoPlant extends Crop {
 
 
-    public TomatoPlant() {}
+    public TomatoPlant() {
+    }
 
 
     public Tomato Yield() {
 
-        return new Tomato();
+        return null;
     }
 }

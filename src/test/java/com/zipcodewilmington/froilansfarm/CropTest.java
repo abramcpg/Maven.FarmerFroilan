@@ -40,14 +40,14 @@ public class CropTest {
         froilanFarm.getField().setCropRows(rows);
     }
 
-    @Test
-    public void yieldEarCornTest(){
-        Crop crop = new Crop;
-        //When
-        Edible actual = crop.yield();
-        //Then
-        assertTrue(actual instanceof EarCorn);
-    }
+//    @Test
+//    public void yieldEarCornTest(){
+//        Crop crop = new Crop();
+//        //When
+//        Edible actual = crop.yield();
+//        //Then
+//        assertTrue(actual instanceof EarCorn);
+//    }
 
 //    @Test
 //    public void tomatoPlantIsEdibleTest(){

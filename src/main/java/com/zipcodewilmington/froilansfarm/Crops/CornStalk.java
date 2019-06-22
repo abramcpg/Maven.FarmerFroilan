@@ -12,9 +12,7 @@ public class CornStalk extends Crop {
 
 
     public EarCorn Yield() {
-
-        //addToStoreHouse(new EarCorn());
-        return new EarCorn();
+        return null;
     }
 
 
