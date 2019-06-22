@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,22 @@ public class CropRow <T extends Crop>{
 
     public void addCrop(T crop) {
         crops.add(crop);
+    }
+
+
+    public void addMultipleToCropRow(Crop crop, Integer amount){
+        for (int i = 0; i < amount; i++){
+            crops.add((T) crop);
+        }
+    }
+
+
+    public ArrayList<EdibleObject> rowYield(){
+        ArrayList<EdibleObject> cropYield = new ArrayList<>();
+        for (T crop : crops){
+            cropYield.add(crop.Yield());
+        }
+        return cropYield;
     }
 
 //    public void forEachCrop(){

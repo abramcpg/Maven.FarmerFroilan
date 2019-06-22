@@ -3,6 +3,8 @@ package com.zipcodewilmington.froilansfarm.Crops;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javafx.scene.input.KeyCode.T;
+
 public class Field {
 
     private List<CropRow> cropRows;
@@ -35,4 +37,9 @@ public class Field {
     public void setCropRows(List<CropRow> cropRows) {
         this.cropRows = cropRows;
     }
+
+    public void addCropRow(CropRow<?> cropRow){
+        cropRows.add(cropRow);
+    }
+
 }

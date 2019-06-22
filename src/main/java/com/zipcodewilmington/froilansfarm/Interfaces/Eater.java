@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Interfaces;
 
-public interface Eater {
+public interface Eater <T extends EdibleObject> {
 
-    public void eat(EdibleObject edibleObject, Integer numberOfEdibles);
+    public void eat(T edibleObject, Integer numberOfEdibles);
 }
