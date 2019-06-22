@@ -13,23 +13,28 @@ public abstract class Crop implements Produce {
         this.harvested = false;
     }
 
-    //required by Produce
-    public EdibleObject yield() {
-        return null;
-    }
-
-
-    public boolean hasBeenFertilized() {
+    public boolean isFertilized() {
         return fertilized;
     }
 
+    public void setFertilized(boolean fertilized) {
+        this.fertilized = fertilized;
+    }
 
     public boolean isHarvested() {
+
         return harvested;
     }
 
     public void setHarvested() {
+
         harvested = !harvested;
     }
+
+    @Override
+    public EdibleObject Yield() {
+        return null;
+    }
+
 
 }
