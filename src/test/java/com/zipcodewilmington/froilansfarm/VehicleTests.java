@@ -13,6 +13,9 @@ import com.zipcodewilmington.froilansfarm.Crops.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
+import com.zipcodewilmington.froilansfarm.Vehicles.Aircraft;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +49,8 @@ public class VehicleTests {
         froilanFarm.getField().setCropRows(rows);
     }
 
-
+    //******************************************
+    // CropDuster Tests
 
 @Test
    public void testCropDusterIsAircraft() {
@@ -59,26 +63,19 @@ public class VehicleTests {
     }
 
 
-//    @Test
-//    public void testCropDusterIsFarmVehicle() {
-//
-//        CropDuster cropDuster = new CropDuster();
-//        Farm farm = new Farm();
-//
-//        String exp = cropDuster.operate(Farm farm);
-//        String act = cropDuster.makeNoise();
-//        Assert.assertEquals(act, exp);
-//
-//    }
-
-
     @Test
     public void testCropDusterSetsFieldHasBeenFertilized() {
 
-
+        Boolean act, exp;
 
         thisField.setHasBeenFertilized(false);
+        act = thisField.getHasBeenFertilized();
 
+        exp = true;
+        thisField.setHasBeenFertilized(exp);
+        act = thisField.getHasBeenFertilized();
+
+        Assert.assertEquals(act, exp);
 
     }
 
@@ -86,12 +83,69 @@ public class VehicleTests {
     @Test
     public void testCropDusterGetsFieldHasBeenFertilized() {
 
+        Boolean act, exp;
 
+        thisField.setHasBeenFertilized(false);
+        act = thisField.getHasBeenFertilized();
 
+        exp = true;
+        thisField.setHasBeenFertilized(exp);
+        act = thisField.getHasBeenFertilized();
 
-
+        Assert.assertEquals(act, exp);
 
     }
+
+
+
+    //******************************************
+    // Tractor Tests
+
+    @Test
+    public void testTractorIsVehicle() {
+
+        Tractor tractor = new Tractor();
+        String exp = "Vrooom";
+        String act = tractor.makeNoise();
+        Assert.assertEquals(act, exp);
+
+    }
+
+
+    @Test
+    public void testTractorIsRideable() {
+
+        Boolean act, exp;
+
+        thisField.setHasBeenFertilized(false);
+        act = thisField.getHasBeenFertilized();
+
+        exp = true;
+        thisField.setHasBeenFertilized(exp);
+        act = thisField.getHasBeenFertilized();
+
+        Assert.assertEquals(act, exp);
+
+    }
+
+
+    @Test
+    public void testTractorFieldFertilized() {
+
+        Boolean act, exp;
+
+        exp = true;
+        thisField.setHasBeenFertilized(exp);
+        act = thisField.getHasBeenFertilized();
+
+        exp = false;
+        thisField.setHasBeenFertilized(exp);
+        act = thisField.getHasBeenFertilized();
+
+        Assert.assertEquals(act, exp);
+
+    }
+
 
 
 }

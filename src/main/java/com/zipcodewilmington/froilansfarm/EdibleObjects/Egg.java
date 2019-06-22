@@ -22,5 +22,5 @@ public class Egg implements EdibleObject {
     }
 }
 
-//Maybe random number generator and two list, edible and notEdible. If even, add to on vs other
+//Maybe random number generator and two list, edible and notEdible. If even, add to one vs other
 //And just Eggs class

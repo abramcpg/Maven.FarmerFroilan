@@ -8,11 +8,12 @@ public class Field {
     private List<CropRow> cropRows;
     private Boolean hasBeenFertilized;
 
-
+    // This is used by CropDuster test (6/21/2019).
     public Boolean getHasBeenFertilized() {
         return hasBeenFertilized;
     }
 
+    // This is used by CropDuster test (6/21/2019).
     public void setHasBeenFertilized(Boolean hasBeenFertilized) {
         this.hasBeenFertilized = hasBeenFertilized;
     }
