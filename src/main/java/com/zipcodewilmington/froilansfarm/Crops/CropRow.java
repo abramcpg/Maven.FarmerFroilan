@@ -1,6 +1,8 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
+import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,9 @@ public class CropRow <T extends Crop>{
 
 
 
+    public Crop getCrop(Integer index) {
+        return crops.get(index);
+    }
 
     public List<T> getCrops() {
         return crops;
@@ -52,8 +57,22 @@ public class CropRow <T extends Crop>{
         return cropYield;
     }
 
-//    public void forEachCrop(){
-//        for
-//    }
+
+    public void fertilizeRow(){
+        for (T crop : crops){
+            crop.setHasBeenFertilized(true);
+        }
+    }
+    
+
+    public ArrayList<Crop> harvestRow() {
+        ArrayList<Crop> cropList = new ArrayList<>();
+        for (T crop : crops) {
+            crop.setHasBeenHarvested(true);
+            cropList.add(crop);
+        }
+        return cropList;
+    }
+
 
 }

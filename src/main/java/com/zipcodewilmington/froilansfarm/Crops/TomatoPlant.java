@@ -6,7 +6,9 @@ import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 public class TomatoPlant extends Crop {
 
 
-    public TomatoPlant() {}
+    public TomatoPlant() {
+        super();
+    }
 
 
     public Tomato Yield() {
