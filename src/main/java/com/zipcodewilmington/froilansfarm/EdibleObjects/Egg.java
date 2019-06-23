@@ -23,8 +23,8 @@ public class Egg implements EdibleObject {
         return edibleCount;
     }
 
-
     public Egg(Boolean hasBeenFertilized) {
+
         this.hasBeenFertilized = hasBeenFertilized;
     }
 
@@ -35,7 +35,6 @@ public class Egg implements EdibleObject {
     public void setHasBeenFertilized(Boolean hasBeenFertilized) {
         this.hasBeenFertilized = hasBeenFertilized;
     }
-
 
 }
 

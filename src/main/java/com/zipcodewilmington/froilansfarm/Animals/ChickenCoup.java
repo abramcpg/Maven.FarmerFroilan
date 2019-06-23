@@ -15,14 +15,10 @@ public class ChickenCoup {
 
     public void addChicken(Chicken chicken){
         chickens.add(chicken);
-
     }
 
     public List<Chicken> getChickens() {
         return chickens;
     }
 
-    public void setChickens(List<Chicken> chickens) {
-        this.chickens = chickens;
-    }
 }

@@ -31,6 +31,7 @@ public class EatingTests {
 
     @Before
     public void setUp(){
+        tearDown();
         ArrayList<EdibleObject> foodList = new ArrayList<>();
         foodList.add(new Tomato());
         foodList.add(new Tomato());
@@ -77,6 +78,7 @@ public class EatingTests {
         Assert.assertEquals(expected, tomatoStorage);
         Assert.assertEquals(expected, eggStorage);
         Assert.assertEquals(expected, carrotStorage);
+        tearDown();
     }
 
     @Test
@@ -87,6 +89,7 @@ public class EatingTests {
         Integer cornStorage = cornHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, cornStorage);
+        tearDown();
     }
 
     @Test
@@ -97,6 +100,7 @@ public class EatingTests {
         Integer tomatoStorage = tomatoHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, tomatoStorage);
+        tearDown();
     }
 
     @Test
@@ -107,6 +111,7 @@ public class EatingTests {
         Integer eggStorage = eggHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, eggStorage);
+        tearDown();
     }
 
     @Test
@@ -117,6 +122,7 @@ public class EatingTests {
         Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, carrotStorage);
+        tearDown();
     }
 
     @Test
@@ -127,6 +133,7 @@ public class EatingTests {
         Integer cornStorage = cornHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, cornStorage);
+        tearDown();
     }
 
     @Test
@@ -137,6 +144,7 @@ public class EatingTests {
         Integer tomatoStorage = tomatoHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, tomatoStorage);
+        tearDown();
     }
 
     @Test
@@ -147,6 +155,7 @@ public class EatingTests {
         Integer eggStorage = eggHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, eggStorage);
+        tearDown();
     }
 
     @Test
@@ -157,6 +166,7 @@ public class EatingTests {
         Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, carrotStorage);
+        tearDown();
     }
 
 
@@ -168,6 +178,7 @@ public class EatingTests {
         Integer cornStorage = cornHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, cornStorage);
+        tearDown();
     }
 
     @Test
@@ -178,6 +189,7 @@ public class EatingTests {
         Integer tomatoStorage = tomatoHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, tomatoStorage);
+        tearDown();
     }
 
     @Test
@@ -188,6 +200,7 @@ public class EatingTests {
         Integer eggStorage = eggHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, eggStorage);
+        tearDown();
     }
 
     @Test
@@ -198,6 +211,7 @@ public class EatingTests {
         Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, carrotStorage);
+        tearDown();
     }
 
 
