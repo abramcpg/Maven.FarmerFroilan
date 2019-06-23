@@ -69,6 +69,22 @@ public class FieldTests {
         Assert.assertTrue(thisField.getHasBeenHarvested());
     }
 
+    @Test
+    public void fertTest3() {
+        thisField.fertilizeField();
+        Assert.assertTrue(thisField.getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest3() {
+        thisField.harvestField();
+        Assert.assertTrue(thisField.getHasBeenHarvested());
+    }
+
+
+
+
+
 
     @Test
     public void addCropRow1(){
@@ -152,6 +168,48 @@ public class FieldTests {
 
         Assert.assertEquals(expected, actual);
     }
+
+
+
+    @Test
+    public void fertTest4() {
+        froilan.plantRow(new CornStalk(), cornRow1, 10);
+        thisField.addCropRow(cornRow1);
+
+        //thisField.fertilizeField();
+        Assert.assertFalse(cornRow1.getCrops().get(0).getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest4() {
+        froilan.plantRow(new CornStalk(), cornRow1, 10);
+        thisField.addCropRow(cornRow1);
+
+        //thisField.fertilizeField();
+        Assert.assertFalse(cornRow1.getCrops().get(0).getHasBeenHarvested());
+    }
+
+    @Test
+    public void fertTest5() {
+        froilan.plantRow(new TomatoPlant(), tomatoRow1, 10);
+        thisField.addCropRow(tomatoRow1);
+        thisField.fertilizeField();
+        Assert.assertTrue(tomatoRow1.getCrops().get(0).getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest6() {
+        froilan.plantRow(new TomatoPlant(), tomatoRow1, 10);
+        thisField.addCropRow(tomatoRow1);
+
+        thisField.harvestField();
+        Assert.assertTrue(tomatoRow1.getCrops().get(0).getHasBeenHarvested());
+    }
+
+
+
+
+
 
 
 

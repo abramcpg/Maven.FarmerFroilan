@@ -51,7 +51,7 @@ public class CropRow <T extends Crop>{
 
     public ArrayList<EdibleObject> rowYield(){
         ArrayList<EdibleObject> cropYield = new ArrayList<>();
-        for (T crop : crops){
+        for (Crop crop : crops){
             cropYield.add(crop.Yield());
         }
         return cropYield;
@@ -59,20 +59,25 @@ public class CropRow <T extends Crop>{
 
 
     public void fertilizeRow(){
-        for (T crop : crops){
+        for (Crop crop : this.crops){
             crop.setHasBeenFertilized(true);
         }
     }
-    
 
-    public ArrayList<Crop> harvestRow() {
-        ArrayList<Crop> cropList = new ArrayList<>();
-        for (T crop : crops) {
+
+    public ArrayList<EdibleObject> harvestRow() {
+        ArrayList<EdibleObject> cropList = new ArrayList<>();
+        for (Crop crop : crops) {
+            cropList.add(crop.Yield());
+            //crop.setHasBeenHarvested(true);
+        }
+        for (Crop crop : crops) {
             crop.setHasBeenHarvested(true);
-            cropList.add(crop);
+            crop.setHasBeenFertilized(false);
         }
         return cropList;
     }
+
 
 
 }
