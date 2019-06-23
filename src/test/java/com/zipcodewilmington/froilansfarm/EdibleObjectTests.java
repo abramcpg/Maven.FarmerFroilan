@@ -19,6 +19,7 @@ public class EdibleObjectTests {
 
     @Before
     public void setUp() {
+        tearDown();
         cornList.add(new EarCorn());
         cornList.add(new EarCorn());
         cornList.add(new EarCorn());
@@ -27,7 +28,7 @@ public class EdibleObjectTests {
         froilanFarm.getBarn().getCornStoreHouse().addEdibleObjects(cornList);
     }
 
-    @After
+
     public void tearDown() {
         cornList.clear();
         froilanFarm.getBarn().getCornStoreHouse().clearStorehouse();
@@ -44,6 +45,7 @@ public class EdibleObjectTests {
         Integer actual = froilanFarm.getBarn().getCornStoreHouse().getAmountInStorage();
 
         Assert.assertEquals(expected, actual);
+        tearDown();
     }
 
     @Test
@@ -54,6 +56,7 @@ public class EdibleObjectTests {
         Integer actual = froilanFarm.getBarn().getCornStoreHouse().getAmountInStorage();
 
         Assert.assertEquals(expected, actual);
+        tearDown();
     }
 
     @Test
@@ -64,6 +67,7 @@ public class EdibleObjectTests {
         Integer actual = froilanFarm.getBarn().getCornStoreHouse().getAmountInStorage();
 
         Assert.assertEquals(expected, actual);
+        tearDown();
     }
 
 

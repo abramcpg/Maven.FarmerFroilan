@@ -15,18 +15,5 @@ public class Aircraft extends Vehicle {
 
     }
 
-    @Override
-    public void hasBeenRidden() {
 
-    }
-
-    @Override
-    public void isBeingRidden() {
-
-    }
-
-    @Override
-    public void stopRiding() {
-
-    }
 }

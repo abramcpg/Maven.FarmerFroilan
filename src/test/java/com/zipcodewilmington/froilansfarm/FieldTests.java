@@ -1,11 +1,13 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
@@ -204,6 +206,37 @@ public class FieldTests {
 
         thisField.harvestField();
         Assert.assertTrue(tomatoRow1.getCrops().get(0).getHasBeenHarvested());
+    }
+
+    @Test
+    public void carrotTest() {
+        ArrayList<Crop> cropList = new ArrayList<>();
+        cropList.add (new CornStalk());
+        cropList.add (new CornStalk());
+        cropList.add (new TomatoPlant());
+        cropList.add (new CarrotPlant());
+
+        genericRow = new CropRow<>(cropList);
+
+        Integer expected = 4;
+        Integer actual = genericRow.getCrops().size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void carrotTest2() {
+        ArrayList<Crop> cropList = new ArrayList<>();
+        cropList.add (new CornStalk());
+        cropList.add (new CornStalk());
+        cropList.add (new TomatoPlant());
+        cropList.add (new CarrotPlant());
+
+        genericRow = new CropRow<>(cropList);
+        genericRow.fertilizeRow();
+
+        EdibleObject actual = genericRow.getCrops().get(3).Yield();
+        Assert.assertTrue(actual instanceof Carrot);
     }
 
 
