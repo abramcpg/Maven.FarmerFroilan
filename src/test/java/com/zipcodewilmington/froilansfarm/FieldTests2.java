@@ -1,13 +1,12 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
-import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
+import com.zipcodewilmington.froilansfarm.StoreHouses.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -139,7 +138,59 @@ public class FieldTests2 {
         froilanFarm.getField().harvestField();
 
         Assert.assertFalse(froilanFarm.getField().getCropRows().get(0).getCrop(0).getHasBeenFertilized());
+    }
 
+    @Test
+    public void harvestTest11() {
+        Integer initialExpected = 0;
+        Integer initialActual = CornStoreHouse.getInstance().getAmountInStorage();
+
+        froilanFarm.getField().fertilizeField();
+        ArrayList<EdibleObject> foodList = froilanFarm.getField().harvestField();
+        Barn.getInstance().addToStorage(foodList);
+
+        Integer resultingExpected = 35;
+        Integer resultingActual = CornStoreHouse.getInstance().getAmountInStorage();
+
+        Assert.assertEquals(initialExpected, initialActual);
+        Assert.assertEquals(resultingExpected, resultingActual);
+    }
+
+    @Test
+    public void harvestTest12() {
+        Integer initialExpected = 0;
+        Integer initialActual = TomatoStoreHouse.getInstance().getAmountInStorage();
+
+        froilanFarm.getField().fertilizeField();
+        ArrayList<EdibleObject> foodList = froilanFarm.getField().harvestField();
+        Barn.getInstance().addToStorage(foodList);
+
+        Integer resultingExpected = 15;
+        Integer resultingActual = TomatoStoreHouse.getInstance().getAmountInStorage();
+
+        Assert.assertEquals(initialExpected, initialActual);
+        Assert.assertEquals(resultingExpected, resultingActual);
+    }
+
+    @Test
+    public void harvestTest13() {
+        Integer initialExpected = 0;
+        Integer initialActual = EggStoreHouse.getInstance().getAmountInStorage();
+
+        froilanFarm.getField().fertilizeField();
+        ArrayList<EdibleObject> foodList = froilanFarm.getField().harvestField();
+        foodList.add(new Egg());
+        foodList.add(new Egg());
+        foodList.add(new Egg());
+        foodList.add(null);
+
+        Barn.getInstance().addToStorage(foodList);
+
+        Integer resultingExpected = 3;
+        Integer resultingActual = EggStoreHouse.getInstance().getAmountInStorage();
+
+        Assert.assertEquals(initialExpected, initialActual);
+        Assert.assertEquals(resultingExpected, resultingActual);
     }
 
 

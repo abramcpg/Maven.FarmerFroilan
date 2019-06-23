@@ -64,21 +64,6 @@ public abstract class StoreHouse <T extends EdibleObject>{ //T makes it generic
     }
 
 
-    public void addToStorage(ArrayList<EdibleObject> edibles) {
-        //ArrayList<Crop> newList = new ArrayList<>();
-        for (EdibleObject edible : edibles) {
-            if (edible != null) {
-                if (edible.getClass().equals(new EarCorn().getClass())){
-                    CornStoreHouse.getInstance().addEdibleObject((EarCorn) edible);
-                } else if (edible.getClass().equals(new Tomato().getClass())){
-                    TomatoStoreHouse.getInstance().addEdibleObject((Tomato) edible);
-                } else {
-                    EggStoreHouse.getInstance().addEdibleObject((Egg) edible);
-                }
-            }
-        }
-        //return cropList;
-    }
 
 }
 
