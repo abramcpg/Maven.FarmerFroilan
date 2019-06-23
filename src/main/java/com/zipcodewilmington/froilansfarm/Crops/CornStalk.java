@@ -12,9 +12,11 @@ public class CornStalk extends Crop {
 
 
     public EarCorn Yield() {
-
+        if (this.getHasBeenHarvested().equals(false) && this.getHasBeenFertilized().equals(true)){
+            return new EarCorn();
+        }
         //addToStoreHouse(new EarCorn());
-        return new EarCorn();
+        return null;
     }
 
 
@@ -22,4 +24,8 @@ public class CornStalk extends Crop {
         Barn.getInstance().getCornStoreHouse().addEdibleObject(earcorn);
     }
 
+
+    public Class getCropType(){
+        return this.getClass();
+    }
 }

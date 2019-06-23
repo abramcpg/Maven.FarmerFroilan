@@ -1,6 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
@@ -44,6 +46,45 @@ public class FieldTests {
         eggStoreHouse.clearStorehouse();
         thisField.setCropRows(new ArrayList<>());
     }
+
+    @Test
+    public void fertTest() {
+        Assert.assertFalse(thisField.getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest() {
+        Assert.assertFalse(thisField.getHasBeenHarvested());
+    }
+
+    @Test
+    public void fertTest2() {
+        thisField.setHasBeenFertilized(true);
+        Assert.assertTrue(thisField.getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest2() {
+        thisField.setHasBeenHarvested(true);
+        Assert.assertTrue(thisField.getHasBeenHarvested());
+    }
+
+    @Test
+    public void fertTest3() {
+        thisField.fertilizeField();
+        Assert.assertTrue(thisField.getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest3() {
+        thisField.harvestField();
+        Assert.assertTrue(thisField.getHasBeenHarvested());
+    }
+
+
+
+
+
 
     @Test
     public void addCropRow1(){
@@ -97,6 +138,81 @@ public class FieldTests {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void newRowTest() {
+        ArrayList<Crop> cropList = new ArrayList<>();
+        cropList.add (new CornStalk());
+        cropList.add (new CornStalk());
+        cropList.add (new TomatoPlant());
+
+        genericRow = new CropRow<>(cropList);
+
+        Integer expected = 3;
+        Integer actual = genericRow.getCrops().size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setCropTest() {
+        ArrayList<Crop> cropList = new ArrayList<>();
+        cropList.add (new CornStalk());
+        cropList.add (new CornStalk());
+        cropList.add (new TomatoPlant());
+
+        genericRow.setCrops(cropList);
+
+        Integer expected = 3;
+        Integer actual = genericRow.getCrops().size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void fertTest4() {
+        froilan.plantRow(new CornStalk(), cornRow1, 10);
+        thisField.addCropRow(cornRow1);
+
+        //thisField.fertilizeField();
+        Assert.assertFalse(cornRow1.getCrops().get(0).getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest4() {
+        froilan.plantRow(new CornStalk(), cornRow1, 10);
+        thisField.addCropRow(cornRow1);
+
+        //thisField.fertilizeField();
+        Assert.assertFalse(cornRow1.getCrops().get(0).getHasBeenHarvested());
+    }
+
+    @Test
+    public void fertTest5() {
+        froilan.plantRow(new TomatoPlant(), tomatoRow1, 10);
+        thisField.addCropRow(tomatoRow1);
+        thisField.fertilizeField();
+        Assert.assertTrue(tomatoRow1.getCrops().get(0).getHasBeenFertilized());
+    }
+
+    @Test
+    public void harvestedTest6() {
+        froilan.plantRow(new TomatoPlant(), tomatoRow1, 10);
+        thisField.addCropRow(tomatoRow1);
+
+        thisField.harvestField();
+        Assert.assertTrue(tomatoRow1.getCrops().get(0).getHasBeenHarvested());
+    }
+
+
+
+
+
+
+
+
 
 
 }
