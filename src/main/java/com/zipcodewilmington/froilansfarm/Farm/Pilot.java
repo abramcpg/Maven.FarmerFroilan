@@ -4,6 +4,7 @@ import com.zipcodewilmington.froilansfarm.Farm.Person;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 
 public class Pilot extends Person implements Rider {
 
@@ -16,7 +17,9 @@ public class Pilot extends Person implements Rider {
         super(name);
     }
 
-    public void pilot(){}
+    public void pilot(CropDuster cropDuster){
+        cropDuster.fertilize(Farm.getInstance().getField());
+    }
 
 
     public String makeNoise() {

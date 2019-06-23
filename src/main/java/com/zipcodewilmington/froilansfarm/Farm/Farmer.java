@@ -9,6 +9,7 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Botanist;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.Interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 
 import java.sql.SQLOutput;
 
@@ -41,8 +42,8 @@ public class Farmer extends Person implements Botanist, Rider {
 
 
 
-    public void pilot() {
-
+    public void pilot(Tractor tractor) {
+        tractor.operate();
     }
 
     public void mount(Rideable rideable) {
