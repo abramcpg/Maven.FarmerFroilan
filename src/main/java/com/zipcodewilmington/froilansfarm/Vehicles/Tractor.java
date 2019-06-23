@@ -19,6 +19,13 @@ public class Tractor extends Vehicle implements FarmVehicle {
         return "Vrooom";
     }
 
+    public Field getThisField() {
+        return thisField;
+    }
+
+    public void setThisField(Field thisField) {
+        this.thisField = thisField;
+    }
 
     public List<Crop> harvest(CropRow cropRow){
 

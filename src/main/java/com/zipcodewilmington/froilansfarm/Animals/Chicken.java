@@ -15,12 +15,17 @@ public class Chicken extends Animal implements Produce {
     }
 
 
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
 
     public String makeNoise() {
         return "B'Gock!";
     }
 
-
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
+    }
 
     public Egg Yield() {
         if (hasBeenFertilized.equals(false)) {
