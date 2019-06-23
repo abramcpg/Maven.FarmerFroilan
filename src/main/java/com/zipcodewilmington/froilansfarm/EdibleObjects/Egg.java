@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Egg implements Produce, EdibleObject {
+public class Egg implements EdibleObject {
 
     private Boolean hasBeenFertilized;
 
@@ -23,8 +23,8 @@ public class Egg implements Produce, EdibleObject {
         return edibleCount;
     }
 
-
     public Egg(Boolean hasBeenFertilized) {
+
         this.hasBeenFertilized = hasBeenFertilized;
     }
 
@@ -36,12 +36,6 @@ public class Egg implements Produce, EdibleObject {
         this.hasBeenFertilized = hasBeenFertilized;
     }
 
-
-    @Override
-    public EdibleObject Yield() {
-
-        return null;
-    }
 }
 
 //Maybe random number generator and two list, edible and notEdible. If even, add to one vs other
