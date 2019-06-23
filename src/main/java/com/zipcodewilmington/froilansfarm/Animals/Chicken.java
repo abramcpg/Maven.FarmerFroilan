@@ -24,6 +24,11 @@ public class Chicken extends Animal implements Produce {
     }
 
 
+    public void eatFood(EdibleObject edibleObject, Integer numberOfEdibles) {
+
+    }
+
+    @Override
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
 
     }
