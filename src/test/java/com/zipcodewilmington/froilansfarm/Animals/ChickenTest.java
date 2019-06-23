@@ -37,8 +37,6 @@ public class ChickenTest {
         Assert.assertNull(chicken.Yield());
     }
 
-
-
     @Test
     public void eat() {
     }
