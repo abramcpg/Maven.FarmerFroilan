@@ -13,15 +13,6 @@ public class Field {
     private Boolean hasBeenFertilized;
     private Boolean hasBeenHarvested;
 
-    // This is used by CropDuster test (6/21/2019).
-    public Boolean getHasBeenFertilized() {
-        return hasBeenFertilized;
-    }
-
-    // This is used by CropDuster test (6/21/2019).
-    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
-        this.hasBeenFertilized = hasBeenFertilized;
-    }
 
     public Field() {
         this.cropRows = new ArrayList<>();
