@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 
@@ -13,9 +14,8 @@ public class TomatoPlant extends Crop {
     }
 
 
-    public Tomato Yield() {
-
-        return null;
+    public Tomato yield(){
+        return new Tomato();
     }
 
     public int getHarvestedTomatoes(int numberOfPlants, int tomatoesPerPlant){  //int is number of tomato plants
@@ -24,5 +24,8 @@ public class TomatoPlant extends Crop {
         return edibleCount;
     }
 
-
+    @Override
+    public EdibleObject Yield() {
+        return null;
+    }
 }
