@@ -31,6 +31,6 @@ public class Chicken extends Animal implements Produce {
 
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
-
+        super.eat(edibleObject, numberOfEdibles);
     }
 }

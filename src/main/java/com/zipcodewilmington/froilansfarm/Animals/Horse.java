@@ -6,12 +6,15 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
 
+    private Boolean hasBeenRiddenToday;
+    private Boolean isBeingRidden;
+
+
     public Horse() {
+        this.hasBeenRiddenToday = false;
+        this.isBeingRidden = false;
     }
 
-    public void eat() {
-
-    }
 
     public String makeNoise() {
 
@@ -20,6 +23,38 @@ public class Horse extends Animal implements Rideable {
 
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
+        super.eat(edibleObject, numberOfEdibles);
+    }
 
+    @Override
+    public void hasBeenRidden() {
+        this.hasBeenRiddenToday = true;
+    }
+
+    @Override
+    public void isBeingRidden() {
+        setBeingRidden(true);
+    }
+
+    @Override
+    public void stopRiding() {
+        setBeingRidden(false);
+    }
+
+
+    public Boolean getHasBeenRiddenToday() {
+        return hasBeenRiddenToday;
+    }
+
+    public void setHasBeenRiddenToday(Boolean hasBeenRiddenToday) {
+        this.hasBeenRiddenToday = hasBeenRiddenToday;
+    }
+
+    public Boolean getBeingRidden() {
+        return isBeingRidden;
+    }
+
+    public void setBeingRidden(Boolean beingRidden) {
+        isBeingRidden = beingRidden;
     }
 }
