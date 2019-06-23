@@ -36,6 +36,6 @@ public class Pilot extends Person implements Rider {
     }
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
-
+        super.eat(edibleObject, numberOfEdibles);
     }
 }
