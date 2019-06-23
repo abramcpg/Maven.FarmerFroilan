@@ -21,15 +21,13 @@ public class Field {
     }
 
 
-
-
-
-
     public List<CropRow> getCropRows() {
+
         return this.cropRows;
     }
 
     public void setCropRows(List<CropRow> cropRows) {
+
         this.cropRows = cropRows;
     }
 

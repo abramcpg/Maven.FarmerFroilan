@@ -10,7 +10,6 @@ public class CornStalk extends Crop {
     public CornStalk() {}
 
 
-
     public EarCorn Yield() {
         if (this.getHasBeenHarvested().equals(false) && this.getHasBeenFertilized().equals(true)){
             return new EarCorn();
