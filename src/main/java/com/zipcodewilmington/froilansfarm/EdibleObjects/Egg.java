@@ -18,9 +18,7 @@ public class Egg implements Produce, EdibleObject {
     public int getDailyEdibleEggs(int numberOfChickens){  //int is numberOfChickens
         int edibleCount =0 ;
         for (int i = 0; i < numberOfChickens; i=i+2) {
-//            if ((int) 100 * Math.random() % 10 != 0) {  //if 9 out of 10 eggs are edible
                 edibleCount++;
-//            }
         }
         return edibleCount;
     }

@@ -5,36 +5,34 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Produce;
 
 public abstract class Crop implements Produce {
 
-    private boolean fertilized;
-    private boolean harvested;
+
+    private Boolean hasBeenFertilized;
+    private Boolean hasBeenHarvested;
 
     public Crop() {
-        this.fertilized = false;
-        this.harvested = false;
-    }
-
-    public boolean isFertilized() {
-        return fertilized;
-    }
-
-    public void setFertilized(boolean fertilized) {
-        this.fertilized = fertilized;
-    }
-
-    public boolean isHarvested() {
-
-        return harvested;
-    }
-
-    public void setHarvested() {
-
-        harvested = !harvested;
-    }
-
-    @Override
-    public EdibleObject Yield() {
-        return null;
+        this.hasBeenFertilized = false;
+        this.hasBeenHarvested = false;
     }
 
 
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
+
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
+    }
+
+    public Boolean getHasBeenHarvested() {
+        return hasBeenHarvested;
+    }
+
+    public void setHasBeenHarvested(Boolean hasBeenHarvested) {
+        this.hasBeenHarvested = hasBeenHarvested;
+    }
+
+
+    public Class getCropType(){
+        return this.getClass();
+    }
 }

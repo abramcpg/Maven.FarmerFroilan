@@ -20,4 +20,8 @@ public class CornStalk extends Crop {
         Barn.getInstance().getCornStoreHouse().addEdibleObject(earcorn);
     }
 
+
+    public Class getCropType(){
+        return this.getClass();
+    }
 }

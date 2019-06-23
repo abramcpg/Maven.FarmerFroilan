@@ -9,11 +9,13 @@ public class Field {
 
     private List<CropRow> cropRows;
     private Boolean hasBeenFertilized;
+    private Boolean hasBeenHarvested;
 
 
     public Field() {
         this.cropRows = new ArrayList<>();
         this.hasBeenFertilized = false;
+        this.hasBeenHarvested = false;
     }
 
 
@@ -31,4 +33,28 @@ public class Field {
         cropRows.add(cropRow);
     }
 
+
+    public void fertilize(){
+        for (CropRow row : cropRows){
+            row.fertilizeRow();
+        }
+        setHasBeenFertilized(true);
+    }
+
+
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
+
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
+    }
+
+    public Boolean getHasBeenHarvested() {
+        return hasBeenHarvested;
+    }
+
+    public void setHasBeenHarvested(Boolean hasBeenHarvested) {
+        this.hasBeenHarvested = hasBeenHarvested;
+    }
 }
