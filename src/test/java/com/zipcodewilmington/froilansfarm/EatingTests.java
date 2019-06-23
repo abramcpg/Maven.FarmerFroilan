@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
@@ -8,10 +9,7 @@ import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.Farm.Pilot;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
-import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
-import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
+import com.zipcodewilmington.froilansfarm.StoreHouses.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -24,6 +22,7 @@ public class EatingTests {
     private CornStoreHouse cornHouse = froilanFarm.getBarn().getCornStoreHouse();
     private TomatoStoreHouse tomatoHouse = froilanFarm.getBarn().getTomatoStoreHouse();
     private EggStoreHouse eggHouse = froilanFarm.getBarn().getEggStoreHouse();
+    private CarrotStoreHouse carrotStoreHouse = froilanFarm.getBarn().getCarrotStoreHouse();
     private Farmer froilan = new Farmer();
     private Horse horse = new Horse();
     private Pilot pilot = new Pilot();
@@ -48,6 +47,12 @@ public class EatingTests {
         foodList.add(new EarCorn());
         foodList.add(new EarCorn());
         foodList.add(new EarCorn());
+        foodList.add(new Carrot());
+        foodList.add(new Carrot());
+        foodList.add(new Carrot());
+        foodList.add(new Carrot());
+        foodList.add(new Carrot());
+
         Barn.getInstance().addToStorage(foodList);
     }
 
@@ -56,6 +61,7 @@ public class EatingTests {
         cornHouse.clearStorehouse();
         tomatoHouse.clearStorehouse();
         eggHouse.clearStorehouse();
+        carrotStoreHouse.clearStorehouse();
     }
 
 
@@ -65,10 +71,12 @@ public class EatingTests {
         Integer cornStorage = cornHouse.getAmountInStorage();
         Integer tomatoStorage = tomatoHouse.getAmountInStorage();
         Integer eggStorage = eggHouse.getAmountInStorage();
+        Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, cornStorage);
         Assert.assertEquals(expected, tomatoStorage);
         Assert.assertEquals(expected, eggStorage);
+        Assert.assertEquals(expected, carrotStorage);
     }
 
     @Test
@@ -102,6 +110,16 @@ public class EatingTests {
     }
 
     @Test
+    public void farmerEat4(){
+        froilan.eat(new Carrot(), 4);
+
+        Integer expected = 1;
+        Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, carrotStorage);
+    }
+
+    @Test
     public void horseEat(){
         horse.eat(new EarCorn(), 3);
 
@@ -129,6 +147,16 @@ public class EatingTests {
         Integer eggStorage = eggHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, eggStorage);
+    }
+
+    @Test
+    public void horseEat4(){
+        horse.eat(new Carrot(), 2);
+
+        Integer expected = 3;
+        Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, carrotStorage);
     }
 
 
@@ -160,6 +188,16 @@ public class EatingTests {
         Integer eggStorage = eggHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, eggStorage);
+    }
+
+    @Test
+    public void pilotEat4(){
+        pilot.eat(new Carrot(), 1);
+
+        Integer expected = 4;
+        Integer carrotStorage = carrotStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, carrotStorage);
     }
 
 

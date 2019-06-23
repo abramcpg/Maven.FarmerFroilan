@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
@@ -41,6 +42,9 @@ public abstract class Person implements NoiseMaker, Eater {
                 break;
             case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Egg":
                 Farm.getInstance().getBarn().getEggStoreHouse().removeEdible(new Egg(), numberOfEdibles);
+                break;
+            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot":
+                Farm.getInstance().getBarn().getCarrotStoreHouse().removeEdible(new Carrot(), numberOfEdibles);
                 break;
             default :
                 System.out.println("Error!!!");
