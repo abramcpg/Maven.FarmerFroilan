@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,12 +10,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class CropTests {
-    TomatoPlant tomatoPlant = new TomatoPlant();
-    CornStalk cornStalk = new CornStalk();
-    ArrayList<Crop> row = new ArrayList<>();
+    private TomatoPlant tomatoPlant = new TomatoPlant();
+    private CornStalk cornStalk = new CornStalk();
+    private ArrayList<Crop> row = new ArrayList<>();
 
-    CropRow cropRows = new CropRow();
-    Field thisField = new Field();
+    private CropRow cropRows = new CropRow();
+    private Field thisField = new Field();
 
 
     @Before
@@ -35,13 +36,13 @@ public class CropTests {
 
     @Test
     public void cropRowsTest1() {
-        Assert.assertTrue(thisField.getCropRows().size() == 2);
+        Assert.assertEquals(2, thisField.getCropRows().size());
     }
 
     @Test
     public void cropRowsTest2() {
         CropRow row1 = thisField.getCropRows().get(0);
-        Assert.assertTrue(row1.getCrops().size() == 3);
+        Assert.assertEquals(3, row1.getCrops().size());
     }
 
 
@@ -116,8 +117,8 @@ public class CropTests {
 
     @Test
     public void harvestedTest6() {
-        ArrayList<Crop> theseCrops = thisField.getCropRows().get(0).harvestRow();
-        Crop crop = theseCrops.get(0);
+        thisField.getCropRows().get(0).harvestRow();
+        Crop crop = thisField.getCropRows().get(0).getCrop(0);
         Assert.assertTrue(crop.getHasBeenHarvested());
     }
 
