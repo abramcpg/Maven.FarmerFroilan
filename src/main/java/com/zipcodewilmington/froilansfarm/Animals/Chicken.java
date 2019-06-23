@@ -8,8 +8,11 @@ import com.zipcodewilmington.froilansfarm.Interfaces.Produce;
 public class Chicken extends Animal implements Produce {
 
 
+    private Boolean hasBeenFertilized;
 
-    public Chicken() {}
+    public Chicken() {
+        this.hasBeenFertilized = false;
+    }
 
 
 
@@ -20,13 +23,14 @@ public class Chicken extends Animal implements Produce {
 
 
     public Egg Yield() {
-
-
-        return new Egg();
+        if (hasBeenFertilized.equals(false)) {
+            return new Egg();
+        }
+        return null;
     }
 
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
-
+        super.eat(edibleObject, numberOfEdibles);
     }
 }

@@ -14,8 +14,11 @@ public class TomatoPlant extends Crop {
     }
 
 
-    public Tomato yield(){
-        return new Tomato();
+   public Tomato Yield() {
+        if (this.getHasBeenHarvested().equals(false) && this.getHasBeenFertilized().equals(true)) {
+            return new Tomato();
+        }
+        return null;
     }
 
     public int getHarvestedTomatoes(int numberOfPlants, int tomatoesPerPlant){  //int is number of tomato plants
@@ -24,8 +27,5 @@ public class TomatoPlant extends Crop {
         return edibleCount;
     }
 
-    @Override
-    public EdibleObject Yield() {
-        return null;
-    }
+
 }

@@ -38,6 +38,8 @@ public class FarmTests {
     public void setUp() {
         froilanFarm.setField(thisField);
         froilanFarm.getField().setCropRows(rows);
+        froilanFarm.getField().fertilizeField();
+        froilanFarm.getField().harvestField();
     }
 
     @After
@@ -72,9 +74,23 @@ public class FarmTests {
     @Test
     public void yieldTest() {
         CornStalk stalk1 = new CornStalk();
-        EarCorn corn1 = stalk1.Yield(); //why must I cast this?
+        stalk1.setHasBeenFertilized(true);
+        stalk1.setHasBeenHarvested(false);
+        EarCorn corn1 = stalk1.Yield();
         Assert.assertNotNull(corn1);
     }
+
+    @Test
+    public void yieldTest1() {
+        CornStalk stalk1 = new CornStalk();
+        stalk1.setHasBeenFertilized(true);
+        stalk1.setHasBeenHarvested(false);
+        EarCorn corn1 = stalk1.Yield();
+        Assert.assertNotNull(corn1);
+    }
+
+
+
 
     @Test
     public void rowTest() {
@@ -147,11 +163,13 @@ public class FarmTests {
 
         ArrayList<EdibleObject> edibleList = new ArrayList<>();
 
+        cornRow1.fertilizeRow();
 
         //should generify this process
         for (CornStalk stalk : cornRow1.getCrops()) {
             edibleList.add(stalk.Yield());
         }
+
 
         Integer expected = 4;
         Integer actual = edibleList.size();
@@ -193,12 +211,45 @@ public class FarmTests {
         genericRow.addMultipleToCropRow(new CornStalk(), 15);
         genericRow.addMultipleToCropRow(new TomatoPlant(), 5);
 
+        genericRow.fertilizeRow();
         ArrayList<EdibleObject> testList = genericRow.rowYield();
 
         Integer expected = 20;
         Integer actual = testList.size();
 
-        System.out.println(testList);
+        //System.out.println(testList);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void multipleYieldTest2(){
+        genericRow.addMultipleToCropRow(new CornStalk(), 15);
+        genericRow.addMultipleToCropRow(new TomatoPlant(), 5);
+
+        //genericRow.fertilizeRow();
+        ArrayList<EdibleObject> testList = genericRow.rowYield();
+
+        Integer expected = 20;
+        Integer actual = testList.size();
+
+        //System.out.println(testList);
+        Assert.assertEquals(expected, actual);
+        Assert.assertNull(testList.get(0));
+    }
+
+    @Test
+    public void multipleYieldTest3(){
+        genericRow.addMultipleToCropRow(new CornStalk(), 15);
+        genericRow.addMultipleToCropRow(new TomatoPlant(), 5);
+
+        genericRow.fertilizeRow();
+        ArrayList<EdibleObject> testList = genericRow.rowYield();
+        ArrayList<EdibleObject> testList2 = genericRow.rowYield();
+
+        Integer expected = 20;
+        Integer actual = testList.size();
+
+        //System.out.println(testList);
         Assert.assertEquals(expected, actual);
     }
 

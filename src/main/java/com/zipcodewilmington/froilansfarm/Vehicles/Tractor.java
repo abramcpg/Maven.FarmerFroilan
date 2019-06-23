@@ -29,4 +29,19 @@ public class Tractor extends Vehicle implements FarmVehicle {
     public void operate(Farm farm) {
 
     }
+
+    @Override
+    public void hasBeenRidden() {
+
+    }
+
+    @Override
+    public void isBeingRidden() {
+
+    }
+
+    @Override
+    public void stopRiding() {
+
+    }
 }

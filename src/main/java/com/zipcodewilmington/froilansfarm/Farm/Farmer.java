@@ -46,33 +46,20 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public void mount(Rideable rideable) {
+        rideable.isBeingRidden();
 
     }
 
     public void dismount(Rideable rideable) {
+        rideable.stopRiding();
 
     }
 
     public void ride(Rideable rideable) {
-
+        rideable.hasBeenRidden();
     }
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
-        String switcher = edibleObject.getClass().toString();
-
-        switch (switcher) {
-            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn":
-                Farm.getInstance().getBarn().getCornStoreHouse().removeEdible(new EarCorn(), numberOfEdibles);
-                break;
-            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato":
-                Farm.getInstance().getBarn().getTomatoStoreHouse().removeEdible(new Tomato(), numberOfEdibles);
-                break;
-            case "class com.zipcodewilmington.froilansfarm.EdibleObjects.Egg":
-                Farm.getInstance().getBarn().getEggStoreHouse().removeEdible(new Egg(), numberOfEdibles);
-                break;
-            default :
-                System.out.println("Error!!!");
-                break;
-        }
+        super.eat(edibleObject, numberOfEdibles);
     }
 }

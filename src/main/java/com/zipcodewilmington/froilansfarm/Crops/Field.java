@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +36,20 @@ public class Field {
     }
 
 
-    public void fertilize(){
+    public void fertilizeField(){
         for (CropRow row : cropRows){
             row.fertilizeRow();
         }
         setHasBeenFertilized(true);
+    }
+
+    public ArrayList<EdibleObject> harvestField(){
+        ArrayList<EdibleObject> foodList = new ArrayList<>();
+        for (CropRow row : cropRows){
+            foodList.addAll(row.harvestRow());
+        }
+        setHasBeenHarvested(true);
+        return foodList;
     }
 
 
@@ -57,4 +68,6 @@ public class Field {
     public void setHasBeenHarvested(Boolean hasBeenHarvested) {
         this.hasBeenHarvested = hasBeenHarvested;
     }
+
+
 }
