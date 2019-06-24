@@ -17,15 +17,17 @@ public class Stable {
 
     }
 
-    public void removeHorse(Horse horse){}
+    public void removeHorse(Horse horse){
+        horses.remove(horse);
+    }
 
     public List<Horse> getHorses() {
         return horses;
     }
-
+/*
     public void setHorses(List<Horse> horses) {
         this.horses = horses;
-    }
+    }*/
 
     public Integer getNumberOfHorses(){
         return horses.size();

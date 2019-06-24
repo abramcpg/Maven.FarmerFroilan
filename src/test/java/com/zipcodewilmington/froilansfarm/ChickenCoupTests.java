@@ -47,13 +47,15 @@ public class ChickenCoupTests{
         chickenCoup.addChicken(Chicken2);
         chickenCoup.addChicken(Chicken3);
 
-        chickenCoup.removeChicken(Chicken3); //remove Chicken3 from actual
+        chickenCoup.removeChicken((Chicken3));
+
 
         //Then
         Assert.assertEquals(expected, chickenCoup.getChickens() );
     }
 
-    @Test
+    //No longer have setChicken method
+    /*@Test
     public void setChickensTest(){
         //Given
         ChickenCoup chickenCoup = new ChickenCoup();
@@ -72,5 +74,5 @@ public class ChickenCoupTests{
         //Then
         Assert.assertEquals(expected, chickenCoup.getChickens() );
 
-    }
+    }*/
 }

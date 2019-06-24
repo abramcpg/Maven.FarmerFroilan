@@ -40,22 +40,25 @@ public class StableTests {
         Horse horse1 = null;
         Horse horse2 = null;
         Horse horse3 = null;
-        expected.add(horse1); //only add horse1 and horse2 to expected
+        expected.add(horse1); //only add Horse1 and horse2 to expected
         expected.add(horse2);
 
 
         //When
-        stable.addHorse(horse1); //add 3 horses to actual
+        stable.addHorse(horse1); //add 3 Horses to actual
         stable.addHorse(horse2);
         stable.addHorse(horse3);
 
-        stable.removeHorse(horse3); //remove horse3 from actual
+        stable.removeHorse(horse3);
+
 
         //Then
         Assert.assertEquals(expected, stable.getHorses() );
     }
 
-    @Test
+
+    //No setHorses method
+   /* @Test
     public void setHorsesTest(){
         //Given
         Stable stable = new Stable();
@@ -74,6 +77,6 @@ public class StableTests {
         //Then
         Assert.assertEquals(expected, stable.getHorses() );
 
-    }
+    }*/
 
 }
