@@ -32,4 +32,5 @@ public class Stable {
     public Integer getNumberOfHorses(){
         return horses.size();
     }
+
 }

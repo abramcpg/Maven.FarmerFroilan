@@ -11,6 +11,7 @@ public class Horse extends Animal implements Rideable {
 
 
     public Horse() {
+        super();
         this.hasBeenRiddenToday = false;
         this.isBeingRidden = false;
     }
