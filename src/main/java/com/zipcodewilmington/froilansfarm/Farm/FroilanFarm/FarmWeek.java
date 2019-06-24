@@ -16,6 +16,8 @@ import com.zipcodewilmington.froilansfarm.Farm.Pilot;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 
+import java.util.ArrayList;
+
 public class FarmWeek {
     FroilanFarm farm = FroilanFarm.getInstance();
     Farmer froilan = (Farmer) farm.getFarm().getFarmHouse().getPeople().get(0);
@@ -34,6 +36,7 @@ public class FarmWeek {
     public void day1(){
         newDay();
         morningRoutine();
+        ArrayList<CropRow> rows = new ArrayList<>();
         froilan.plantRow(new CornStalk(), row1, 100);
         froilan.plantRow(new TomatoPlant(), row2, 100);
         froilan.plantRow(new CarrotPlant(), row3, 100);
@@ -44,9 +47,14 @@ public class FarmWeek {
         froilan.plantRow(new CarrotPlant(), row5, 50);
         froilan.plantRow(new CornStalk(), row5, 25);
         froilan.plantRow(new TomatoPlant(), row5, 25);
+        rows.add(row1);
+        rows.add(row2);
+        rows.add(row3);
+        rows.add(row4);
+        rows.add(row5);
+        farm.getFarm().getField().setCropRows(rows);
 
         dinner();
-
     }
 
     public void day2(){
@@ -80,7 +88,7 @@ public class FarmWeek {
                 day2();
                 day3();
                 break;
-            case "Wedneday":
+            case "Wednesday":
                 day1();
                 day2();
                 day3();
@@ -101,7 +109,7 @@ public class FarmWeek {
                 day3();
                 day2();
                 break;
-            case "Satuday":
+            case "Saturday":
                 day1();
                 day2();
                 day3();
@@ -122,7 +130,7 @@ public class FarmWeek {
         rideHorses();
         froilan.feedHorses(new Carrot(), 3);
         froilan.feedChickens(new EarCorn(), 1);
-
+        froilan.getEggs();
 
         froilan.eat(new EarCorn(), 1);
         froilan.eat(new Tomato(), 2);

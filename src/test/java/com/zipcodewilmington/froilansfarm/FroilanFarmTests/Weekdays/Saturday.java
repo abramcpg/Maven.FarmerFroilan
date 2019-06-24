@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Sunday {
+public class Saturday {
 
     private FroilanFarm froilanFarm = FroilanFarm.getInstance();
     private FarmWeek week = new FarmWeek();
@@ -27,72 +27,58 @@ public class Sunday {
 
     @Test
     public void horseTest2(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
         Horse horse = froilanFarm.getFarm().getStables().get(0).getHorses().get(0);
         Assert.assertTrue(horse.getHasBeenRiddenToday());
         Assert.assertTrue(horse.getHasBeenFed());
     }
 
-    @Test
-    public void foodTest(){
-        Integer expected = 300;
-        Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getCarrotStoreHouse().getAmountInStorage());
-        Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getCornStoreHouse().getAmountInStorage());
-        Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getTomatoStoreHouse().getAmountInStorage());
-        Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getEggStoreHouse().getAmountInStorage());
-    }
 
     @Test
     public void carrotTest(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
 
-        Integer expected = 266;
+        Integer expected = 212;
         Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getCarrotStoreHouse().getAmountInStorage());
     }
 
     @Test
     public void cornTest(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
 
-        Integer expected = 278;
+        Integer expected = 321;
         Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getCornStoreHouse().getAmountInStorage());
     }
 
     @Test
     public void tomatoTest(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
 
-        Integer expected = 293;
+        Integer expected = 426;
         Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getTomatoStoreHouse().getAmountInStorage());
     }
 
     @Test
     public void eggTest(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
 
-        Integer expected = 308;
+        Integer expected = 356;
         Assert.assertEquals(expected, froilanFarm.getFarm().getBarn().getEggStoreHouse().getAmountInStorage());
     }
 
     @Test
     public void fieldTest(){
-        week.week(DayOfWeek.SUNDAY);
+        week.week(DayOfWeek.SATURDAY);
         Assert.assertFalse(froilanFarm.getFarm().getField().getHasBeenFertilized());
     }
 
     @Test
     public void fieldTest2(){
-        week.week(DayOfWeek.SUNDAY);
-        Assert.assertFalse(froilanFarm.getFarm().getField().getHasBeenHarvested());
-    }
-
-    @Test
-    public void cropRowTest(){
-        week.week(DayOfWeek.SUNDAY);
-        Integer expected = 100;
-        Integer actual = froilanFarm.getFarm().getField().getCropRows().get(0).getCrops().size();
-        Assert.assertEquals(expected, actual);
+        week.week(DayOfWeek.SATURDAY);
+        Assert.assertTrue(froilanFarm.getFarm().getField().getHasBeenHarvested());
     }
 
 
 }
+
+

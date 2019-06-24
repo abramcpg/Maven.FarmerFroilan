@@ -16,6 +16,7 @@ public class CropDuster extends Aircraft implements FarmVehicle {
 
     public void fertilize(Field field){
         Farm.getInstance().getField().fertilizeField();
+        Farm.getInstance().getField().setHasBeenHarvested(false);
         //Farm.getInstance().getField().setHasBeenFertilized(true);
         //Sets Field,hasBeenFertilized to true
     }

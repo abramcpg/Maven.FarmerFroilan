@@ -143,7 +143,7 @@ public class FroilanFarm {
         farm.getBarn().getCornStoreHouse().clearStorehouse();
         farm.getBarn().getEggStoreHouse().clearStorehouse();
         farm.getBarn().getTomatoStoreHouse().clearStorehouse();
-        farm.setField(new Field());
+        //farm.setField(new Field());
         farm.setFarmVehicles(new ArrayList<>());
         farm.getFarmHouse().setPeople(new ArrayList<>());
         farm.setChickenCoops(new ArrayList<>());
