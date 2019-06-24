@@ -45,11 +45,11 @@ public class Barn {
         //ArrayList<Crop> newList = new ArrayList<>();
         for (EdibleObject edible : edibles) {
             if (edible != null) {
-                if (edible.getClass().equals(new EarCorn().getClass())){
+                if (edible instanceof EarCorn){
                     CornStoreHouse.getInstance().addEdibleObject((EarCorn) edible);
-                } else if (edible.getClass().equals(new Tomato().getClass())){
+                } else if (edible instanceof Tomato){
                     TomatoStoreHouse.getInstance().addEdibleObject((Tomato) edible);
-                } else if (edible.getClass().equals(new Carrot().getClass())){
+                } else if (edible instanceof Carrot){
                     CarrotStoreHouse.getInstance().addEdibleObject((Carrot) edible);
                 } else {
                     EggStoreHouse.getInstance().addEdibleObject((Egg) edible);

@@ -1,11 +1,16 @@
 package com.zipcodewilmington.froilansfarm.Farm.FroilanFarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Chicken;
+import com.zipcodewilmington.froilansfarm.Animals.ChickenCoup;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Animals.Stable;
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
+import com.zipcodewilmington.froilansfarm.Farm.DayOfWeek;
+import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.Farm.Pilot;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
@@ -27,6 +32,7 @@ public class FarmWeek {
 
 
     public void day1(){
+        newDay();
         morningRoutine();
         froilan.plantRow(new CornStalk(), row1, 100);
         froilan.plantRow(new TomatoPlant(), row2, 100);
@@ -44,15 +50,67 @@ public class FarmWeek {
     }
 
     public void day2(){
+        newDay();
         morningRoutine();
         froilanda.pilot(duster);
         dinner();
     }
 
     public void day3(){
+        newDay();
         morningRoutine();
         froilan.pilot(tractor);
         dinner();
+    }
+
+
+
+    public void week(DayOfWeek day){
+        String switcher = day.getDayName();
+        switch (switcher) {
+            case "Sunday":
+                day1();
+                break;
+            case "Monday":
+                day1();
+                day2();
+                break;
+            case "Tuesday":
+                day1();
+                day2();
+                day3();
+                break;
+            case "Wedneday":
+                day1();
+                day2();
+                day3();
+                day2();
+                break;
+            case "Thursday":
+                day1();
+                day2();
+                day3();
+                day2();
+                day3();
+                break;
+            case "Friday":
+                day1();
+                day2();
+                day3();
+                day2();
+                day3();
+                day2();
+                break;
+            case "Satuday":
+                day1();
+                day2();
+                day3();
+                day2();
+                day3();
+                day2();
+                day3();
+                break;
+        }
     }
 
 
@@ -91,10 +149,6 @@ public class FarmWeek {
 
 
 
-
-
-
-
     public void rideHorses(){
         for (Horse horse : farm.getFarm().getStables().get(0).getHorses()){
             froilan.ride(horse);
@@ -105,9 +159,22 @@ public class FarmWeek {
         for (Horse horse : farm.getFarm().getStables().get(2).getHorses()){
             froilan.ride(horse);
         }
+    }
 
 
+    public void newDay() {
+        for (Stable stable : Farm.getInstance().getStables()) {
+            for (Horse horse : stable.getHorses()) {
+                horse.setHasBeenFed(false);
+                horse.setHasBeenRiddenToday(false);
+            }
+        }
 
+        for (ChickenCoup coup : Farm.getInstance().getChickenCoops()) {
+            for (Chicken chicken : coup.getChickens()) {
+                chicken.setHasBeenFed(false);
+            }
+        }
     }
 
 
