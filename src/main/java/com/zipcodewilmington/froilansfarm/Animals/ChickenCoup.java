@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChickenCoup {
-    List<Chicken> chickens;
+    private List<Chicken> chickens;
 
     public ChickenCoup() {
         this.chickens = new ArrayList<>();
@@ -19,9 +19,6 @@ public class ChickenCoup {
 
     public void addChicken(Chicken chicken){
         chickens.add(chicken);
-    }
-    public void removeChicken(Chicken chicken){
-        chickens.remove(chicken);
     }
 
     public List<Chicken> getChickens() {

@@ -16,9 +16,6 @@ public class Horse extends Animal implements Rideable {
         this.isBeingRidden = false;
     }
 
-    public void eat() {
-
-    }
 
     public String makeNoise() {
 

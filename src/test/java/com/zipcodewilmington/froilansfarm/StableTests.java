@@ -32,7 +32,7 @@ public class StableTests {
         Assert.assertEquals(expected, stable.getHorses());
     }
 
-    @Test
+ /*   @Test
     public void removeHorseTest(){
         //Given
         Stable stable = new Stable();
@@ -54,7 +54,7 @@ public class StableTests {
 
         //Then
         Assert.assertEquals(expected, stable.getHorses() );
-    }
+    }*/
 
 
     //No setHorses method
