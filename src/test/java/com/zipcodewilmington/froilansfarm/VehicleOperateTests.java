@@ -5,9 +5,8 @@ import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.FarmHouse;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.Farm.Pilot;
-import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
-import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
+import com.zipcodewilmington.froilansfarm.StoreHouses.*;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 import org.junit.After;
@@ -31,6 +30,7 @@ public class VehicleOperateTests {
     private CornStoreHouse cornStoreHouse  = froilanFarm.getBarn().getCornStoreHouse();
     private TomatoStoreHouse tomatoStoreHouse = froilanFarm.getBarn().getTomatoStoreHouse();
     private EggStoreHouse eggStoreHouse = froilanFarm.getBarn().getEggStoreHouse();
+    private CarrotStoreHouse carrotStoreHouse = froilanFarm.getBarn().getCarrotStoreHouse();
     private CropDuster cropDuster = new CropDuster();
     private Pilot froilanda = new Pilot();
     private Tractor tractor = new Tractor();
@@ -47,6 +47,8 @@ public class VehicleOperateTests {
         froilan.plantRow(new TomatoPlant(), tomatoRow1, 10);
         froilan.plantRow(new CornStalk(), genericRow, 5);
         froilan.plantRow(new TomatoPlant(), genericRow, 5);
+        froilan.plantRow(new CarrotPlant(), genericRow, 5);
+
         froilanFarm.getField().addCropRow(cornRow1);
         froilanFarm.getField().addCropRow(cornRow2);
         froilanFarm.getField().addCropRow(tomatoRow1);
@@ -58,6 +60,7 @@ public class VehicleOperateTests {
         cornStoreHouse.clearStorehouse();
         tomatoStoreHouse.clearStorehouse();
         eggStoreHouse.clearStorehouse();
+        carrotStoreHouse.clearStorehouse();
         thisField.setCropRows(new ArrayList<>());
     }
 
@@ -103,6 +106,40 @@ public class VehicleOperateTests {
     @Test
     public void tractorTest4() {
         Assert.assertFalse(thisField.getCropRows().get(0).getCrop(1).getHasBeenHarvested());
+    }
+
+    @Test
+    public void harvestTest() {
+        froilanda.pilot(cropDuster);
+        froilan.pilot(tractor);
+
+        Integer expected = 35;
+        Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+        }
+
+    @Test
+    public void harvestTest2() {
+        froilanda.pilot(cropDuster);
+        froilan.pilot(tractor);
+
+        Integer expected = 5;
+        Integer actual = carrotStoreHouse.getAmountInStorage();
+        System.out.println(carrotStoreHouse.getEdibleObjects().toString());
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void harvestTest3() {
+        froilanda.pilot(cropDuster);
+        froilan.pilot(tractor);
+
+        Integer expected = 15;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
     }
 
 }

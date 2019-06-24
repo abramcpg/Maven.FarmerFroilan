@@ -11,6 +11,7 @@ public class Chicken extends Animal implements Produce {
     private Boolean hasBeenFertilized;
 
     public Chicken() {
+        super();
         this.hasBeenFertilized = false;
     }
 

@@ -1,8 +1,11 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Animals.ChickenCoup;
+import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Animals.Stable;
 import com.zipcodewilmington.froilansfarm.Crops.Field;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 
@@ -31,19 +34,16 @@ public class Farm {
     }
 
 
-    public static Farm getInstance(){
+    public static Farm getInstance() {
         return INSTANCE;
     }
 
 
-
-
-
-    public void addStable(Stable stable){
+    public void addStable(Stable stable) {
         stables.add(stable);
     }
 
-    public void addChickenCoup(ChickenCoup chickenCoup){
+    public void addChickenCoup(ChickenCoup chickenCoup) {
         chickenCoops.add(chickenCoup);
     }
 
@@ -91,4 +91,6 @@ public class Farm {
     public Barn getBarn() {
         return barn;
     }
+
+
 }
