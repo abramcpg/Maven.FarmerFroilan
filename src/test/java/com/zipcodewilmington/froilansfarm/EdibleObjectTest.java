@@ -75,5 +75,17 @@ public class EdibleObjectTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void getHarvestedCarrotsTest() {
+        //when
+        TomatoPlant tomatoPlant = new TomatoPlant();
+        int numberOfPlants = 50;
+        int tomatoesPerPlant = 10;
+        //when
+        int expected = numberOfPlants * tomatoesPerPlant;
+        int actual = tomatoPlant.getHarvestedTomatoes(numberOfPlants, tomatoesPerPlant);
+        //assert
+        assertEquals(expected, actual);
+    }
 
 }
