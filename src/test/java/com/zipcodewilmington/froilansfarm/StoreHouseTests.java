@@ -43,7 +43,7 @@ public class StoreHouseTests {
 
 
     @Test
-    public void test1(){
+    public void cornHouseTest1(){
         cornStoreHouse.addEdibleObject(cornStalk.Yield());
         cornStoreHouse.addEdibleObject(cornStalk.Yield());
 
@@ -54,7 +54,20 @@ public class StoreHouseTests {
     }
 
     @Test
-    public void test2(){
+    public void cornHouseTest2() {
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+
+        Integer expected = 4;
+        Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void cornHouseTest3(){
         Integer expected = 0;
         Integer actual = cornStoreHouse.getAmountInStorage();
 
@@ -63,7 +76,7 @@ public class StoreHouseTests {
 
 
     @Test
-    public void test3(){
+    public void tomatoTest1(){
         ArrayList<Tomato> tomatoList = new ArrayList<>();
         tomatoList.add(new Tomato());
         tomatoList.add(new Tomato());
@@ -77,9 +90,51 @@ public class StoreHouseTests {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void tomatoTest2(){
+        ArrayList<Tomato> tomatoList = new ArrayList<>();
+        tomatoList.add(new Tomato());
+        tomatoList.add(new Tomato());
+        tomatoList.add(new Tomato());
+        tomatoList.add(tomatoPlant.Yield());
+
+        tomatoStoreHouse.addEdibleObjects(tomatoList);
+
+        Integer expected = 4;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
-    public void eatTest(){
+    public void tomatoTest3() {
+        ArrayList<Tomato> tomatoList = new ArrayList<>();
+        tomatoList.add(new Tomato());
+        tomatoList.add(tomatoPlant.Yield());
+
+        tomatoStoreHouse.addEdibleObjects(tomatoList);
+
+        Integer expected = 2;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void tomatoTest4() {
+        ArrayList<Tomato> tomatoList = new ArrayList<>();
+
+        tomatoStoreHouse.addEdibleObjects(tomatoList);
+
+        Integer expected = 0;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void eatCornTest(){
         Farmer froilan = new Farmer("Froilan");
         cornStoreHouse.addEdibleObject(cornStalk.Yield());
         cornStoreHouse.addEdibleObject(cornStalk.Yield());
@@ -92,6 +147,95 @@ public class StoreHouseTests {
 
         Integer expected = 2;
         Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatCornTest2(){
+        Farmer froilan = new Farmer("Froilan");
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+
+        froilan.eat(new EarCorn(), 4);
+
+
+        Integer expected = 4;
+        Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatCornTest3(){
+        Farmer froilan = new Farmer("Froilan");
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+        cornStoreHouse.addEdibleObject(cornStalk.Yield());
+
+        froilan.eat(new EarCorn(), 2);
+
+        Integer expected = 1;
+        Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatTomatoTest(){
+        Farmer froilanda = new Farmer("Froilanda");
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+
+        froilanda.eat(new Tomato(), 3);
+
+
+        Integer expected = 3;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatTomatoTest2(){
+        Farmer froilanda = new Farmer("Froilanda");
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+
+
+        froilanda.eat(new Tomato(), 1);
+
+
+        Integer expected = 2;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatTomatoTest3(){
+        Farmer froilanda = new Farmer("Froilanda");
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+        tomatoStoreHouse.addEdibleObject(tomatoPlant.Yield());
+
+
+        froilanda.eat(new Tomato(), 2);
+
+
+        Integer expected = 1;
+        Integer actual = tomatoStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, actual);
     }
