@@ -29,6 +29,7 @@ public class ChickenCoupTests{
         //Then
         Assert.assertEquals(expected, chickenCoup.getChickens());
     }
+/*
 
     @Test
     public void removeChickenTest(){
@@ -52,7 +53,7 @@ public class ChickenCoupTests{
 
         //Then
         Assert.assertEquals(expected, chickenCoup.getChickens() );
-    }
+    }*/
 
     //No longer have setChicken method
     /*@Test

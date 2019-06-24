@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChickenCoup {
-    private List<Chicken> chickens;
+    List<Chicken> chickens;
 
     public ChickenCoup() {
         this.chickens = new ArrayList<>();
