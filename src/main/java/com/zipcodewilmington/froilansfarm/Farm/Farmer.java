@@ -79,6 +79,8 @@ public class Farmer extends Person implements Botanist, Rider {
 
     public ArrayList<EdibleObject> pilot(Tractor tractor) {
         ArrayList<EdibleObject> harvested = tractor.operate();
+        Farm.getInstance().getField().setHasBeenFertilized(false);
+        Farm.getInstance().getField().setHasBeenHarvested(true);
         return harvested;
     }
 
