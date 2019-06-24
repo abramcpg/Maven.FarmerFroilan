@@ -17,7 +17,18 @@ public class CornStoreHouse extends StoreHouse<EarCorn> {
         super(edibleObjects);
     }
 
+
+
+
+
+
+
+
+
     public static CornStoreHouse getInstance() {
         return INSTANCE;
     }
+
+
+
 }

@@ -15,6 +15,9 @@ public class EggStoreHouse extends StoreHouse<Egg> {
 
     public EggStoreHouse(List<Egg> edibleObjects) {
         super(edibleObjects);
+
+
+
     }
 
     public static EggStoreHouse getInstance() {
