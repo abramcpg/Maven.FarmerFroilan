@@ -49,7 +49,7 @@ public abstract class StoreHouse <T extends EdibleObject>{ //T makes it generic
 
 
     public Integer getAmountInStorage(){
-        return this.edibleObjects.size();
+        return edibleObjects.size();
     }
 
     public void removeEdible(T edible, Integer numberOfEdibles){

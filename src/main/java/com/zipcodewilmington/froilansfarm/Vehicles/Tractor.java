@@ -7,6 +7,7 @@ import com.zipcodewilmington.froilansfarm.Crops.Field;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.Interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.StoreHouses.Barn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
         }
         thisField.setHasBeenFertilized(false);
         //sets Field.hasBeenFertilized to false
+        Barn.getInstance().addToStorage(foodList);
         return foodList;
     }
 

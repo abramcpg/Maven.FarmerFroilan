@@ -1,12 +1,14 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Animals.Chicken;
+import com.zipcodewilmington.froilansfarm.Animals.ChickenCoup;
 import com.zipcodewilmington.froilansfarm.Crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.Crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
+import com.zipcodewilmington.froilansfarm.Interfaces.EdibleObject;
 import com.zipcodewilmington.froilansfarm.StoreHouses.CornStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.EggStoreHouse;
 import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
@@ -25,11 +27,12 @@ public class StoreHouseTests {
     private EggStoreHouse eggStoreHouse = froilanFarm.getBarn().getEggStoreHouse();
     private CornStalk cornStalk = new CornStalk();
     private TomatoPlant tomatoPlant = new TomatoPlant();
-    private Chicken chicken = new Chicken();
 
 
     @Before
-    public void setUp(){}
+    public void setUp(){
+        tearDown();
+    }
 
     @After
     public void tearDown(){
@@ -89,6 +92,30 @@ public class StoreHouseTests {
 
         Integer expected = 2;
         Integer actual = cornStoreHouse.getAmountInStorage();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eggTest(){
+        ArrayList<ChickenCoup> coups = new ArrayList<>();
+        ChickenCoup chickenCoup = new ChickenCoup();
+        chickenCoup.addChicken(new Chicken());
+        chickenCoup.addChicken(new Chicken());
+        chickenCoup.addChicken(new Chicken());
+        ChickenCoup chickenCoup2 = new ChickenCoup();
+        chickenCoup2.addChicken(new Chicken());
+        chickenCoup2.addChicken(new Chicken());
+        coups.add(chickenCoup);
+        coups.add(chickenCoup2);
+        froilanFarm.setChickenCoops(coups);
+
+        Farmer froilan = new Farmer("Froilan");
+
+        froilan.getEggs();
+
+        Integer expected = 5;
+        Integer actual = eggStoreHouse.getAmountInStorage();
 
         Assert.assertEquals(expected, actual);
     }

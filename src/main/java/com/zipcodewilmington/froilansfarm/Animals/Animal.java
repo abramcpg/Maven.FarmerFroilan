@@ -11,6 +11,13 @@ import com.zipcodewilmington.froilansfarm.Interfaces.NoiseMaker;
 
 public abstract class Animal implements NoiseMaker, Eater {
 
+    private Boolean hasBeenFed;
+
+    public Animal(){
+        this.hasBeenFed = false;
+    }
+
+
 
     public void eat(EdibleObject edibleObject, Integer numberOfEdibles) {
         String switcher = edibleObject.getClass().toString();
@@ -34,4 +41,11 @@ public abstract class Animal implements NoiseMaker, Eater {
         }
     }
 
+    public Boolean getHasBeenFed() {
+        return hasBeenFed;
+    }
+
+    public void setHasBeenFed(Boolean hasBeenFed) {
+        this.hasBeenFed = hasBeenFed;
+    }
 }
