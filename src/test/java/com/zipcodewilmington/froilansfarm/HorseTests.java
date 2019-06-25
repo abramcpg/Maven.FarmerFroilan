@@ -26,7 +26,7 @@ public class HorseTests {
     public void makeNoiseTest(){
         //Given
         Horse horse = new Horse();
-        String expected = "Hello, Farmer Froilan. It is good to see you.";
+        String expected = "Let the ruling classes tremble at a Communistic revolution";
 
         //Then
         Assert.assertEquals(expected, horse.makeNoise());
