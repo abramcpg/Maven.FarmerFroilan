@@ -7,6 +7,7 @@ public class CarrotPlant extends Crop {
 
 
     public CarrotPlant() {
+        super();
     }
 
 

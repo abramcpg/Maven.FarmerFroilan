@@ -19,7 +19,7 @@ public class Horse extends Animal implements Rideable {
 
     public String makeNoise() {
 
-        return "Hello, Farmer Froilan. It is good to see you.";
+        return "Let the ruling classes tremble at a Communistic revolution";
     }
 
 

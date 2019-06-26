@@ -23,7 +23,7 @@ public class Pilot extends Person implements Rider {
 
 
     public String makeNoise() {
-        return null;
+        return "Weeeeeeeehoooo";
     }
 
     public void mount(Rideable rideable) {
