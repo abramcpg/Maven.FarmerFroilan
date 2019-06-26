@@ -126,7 +126,6 @@ public class VehicleOperateTests {
 
         Integer expected = 5;
         Integer actual = carrotStoreHouse.getAmountInStorage();
-        System.out.println(carrotStoreHouse.getEdibleObjects().toString());
 
         Assert.assertEquals(expected, actual);
     }

@@ -5,6 +5,10 @@ import com.zipcodewilmington.froilansfarm.Animals.ChickenCoup;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Animals.Stable;
 import com.zipcodewilmington.froilansfarm.Crops.*;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Carrot;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.EarCorn;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Egg;
+import com.zipcodewilmington.froilansfarm.EdibleObjects.Tomato;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Farmer;
 import com.zipcodewilmington.froilansfarm.Farm.FroilanFarm.FroilanFarm;
@@ -20,6 +24,7 @@ import com.zipcodewilmington.froilansfarm.StoreHouses.TomatoStoreHouse;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -97,7 +102,7 @@ public FarmTour() {
 
    this.tour2 = String.format(
            "Here we have all the food we make here on Froilan's farm.\n" +
-                   "Corn Store House: " + cornDisplay +
+                   "Corn Store House: " + froilanFarm.getFarm().getBarn().getCornStoreHouse().getAmountInStorage() +
                    "\nTomato Store House: " +tomatoDisplay +
                    "\nEgg Store House: " + eggDisplay +
                    "\nAnything else ya'll wanna see?\n" + tourOptions);
@@ -108,6 +113,72 @@ public FarmTour() {
 
     froilanFarm.setUp();
 }
+
+
+    public void getFood() {
+        out.println("\nHere we have all the food we make here on Froilan's farm.");
+        String storehouses = ("=========================\n" +
+                "Corn Store House: " + froilanFarm.getFarm().getBarn().getCornStoreHouse().getAmountInStorage() +
+                "\nTomato Store House: " + froilanFarm.getFarm().getBarn().getTomatoStoreHouse().getAmountInStorage() +
+                "\nEgg Store House: " + froilanFarm.getFarm().getBarn().getEggStoreHouse().getAmountInStorage() +
+                "\nCarrot Store House: " + froilanFarm.getFarm().getBarn().getCarrotStoreHouse().getAmountInStorage()
+                + "\n=========================\n");
+        out.println(storehouses);
+
+
+        String food;
+        Integer num;
+
+        while (true) {
+            out.println("Yer lookin' mighty hungry, ya'll want summin' ta eat?");
+            food = input.nextLine().toLowerCase();
+            if (food.equals("yes") || food.equals("no")) {
+                break;
+            } else {
+                out.println("Heh?");
+            }
+        }
+        if (food.equalsIgnoreCase("yes")) {
+            out.println("What can I getchya?");
+            food = input.nextLine().toLowerCase();
+
+            while (true) {
+                out.println("How many ya want?");
+                try {
+                    num = input.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    out.println("Well I ain't so good at math, but I'm dang sure that ain't no number...");
+                    num = 1;
+                    break;
+                }
+            }
+            Farmer person = new Farmer();
+            switch (food) {
+                case "corn":
+                    person.eat(new EarCorn(), num);
+                    break;
+                case "tomato":
+                    person.eat(new Tomato(), num);
+                    break;
+                case "egg":
+                    person.eat(new Egg(), num);
+                    break;
+                case "carrot":
+                    person.eat(new Carrot(), num);
+                default:
+                    break;
+            }
+        }
+        if (froilanFarm.getFarm().getBarn().getCornStoreHouse().getAmountInStorage() + froilanFarm.getFarm().getBarn().getTomatoStoreHouse().getAmountInStorage() + froilanFarm.getFarm().getBarn().getEggStoreHouse().getAmountInStorage() + froilanFarm.getFarm().getBarn().getCarrotStoreHouse().getAmountInStorage()
+                == 0) {
+            out.println("\n\n\n\n\n\nYA'LL ATE ALL OF MY DAMN PRODUCE! GET THE HELL OFF MY FARM, DAMMIT!!!");
+            System.exit(0);
+        } else {
+            out.println("\nAnything else ya'll wanna see?\n" + tourOptions);
+            setTour();
+        }
+    }
 
 
         public void init () {
@@ -129,6 +200,7 @@ public FarmTour() {
 
         public void setTour () {
             //Message sent from setDay or one of the tours
+            tour = "";
             tour = input.nextLine();
             callTour();
         }
@@ -140,13 +212,14 @@ public FarmTour() {
                     setTour();
                     break;
                 case "2":
-                    out.println(tour2);
+                    //out.println(tour2);
+                    getFood();
                     setTour();
                     break;
                 case "3":
                     out.println(tour3);
                     setTour();
-                    callTour();
+                    //callTour();
                     break;
                 case "4":
                     out.println(tour4);

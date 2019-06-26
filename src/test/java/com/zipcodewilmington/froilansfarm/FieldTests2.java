@@ -115,7 +115,6 @@ public class FieldTests2 {
         Integer expected = 50;
         Integer actual = foodList.size();
 
-        System.out.println(foodList);
         Assert.assertEquals(expected, actual);
         Assert.assertNotNull(foodList.get(0));
     }
